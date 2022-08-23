@@ -10,7 +10,7 @@ mix
         postCss: [require('tailwindcss')],
     })
     .browserSync({
-        proxy: 'beetsphp.local', // Set to your "localhost/folder" or virtual host "myvhost.local"
+        proxy: 'localhost/myapp', // Set to your "localhost/folder" or virtual host "myvhost.local"
         files: [
             './**/*.html',
             './**/*.php',
