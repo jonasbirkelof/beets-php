@@ -20,14 +20,12 @@ git clone https://github.com/jonasbirkelof/beets-php.git
 ## Setup
 
 1. Open *webpack.mix.js* and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
-
-2. Run `npm install` to download and install all npm dependencies from package.json.
-
-3. Run `composer install` to download and install all composer dependencies from composer.json.
-
-4. Run `npm run build` to make an initial compile of Tailwind CSS, SCSS and JS into the *~/public/assets* folder.
-
-5. Run `npm run watch` to (compile again and) start Browser-ssync. A new browser window or tab will open with the local server running on port 3000 (or higher if you have multiple instances of Browser-sync running).
+2. Rename *.env.example* to *.env*.
+3. Rename *.gitignore.example* to *.gitignore*.
+4. Run `npm install` to download and install all npm dependencies from package.json.
+5. Run `composer install` to download and install all composer dependencies from composer.json.
+6. Run `npm run build` to make an initial compile of Tailwind CSS, SCSS and JS into the *~/public/assets* folder.
+7. Run `npm run watch` to (compile again and) start Browser-ssync. A new browser window or tab will open with the local server running on port 3000 (or higher if you have multiple instances of Browser-sync running).
 
 **Remember to update *tailwind.config.js* and *webpack.mix.js* if you are adding file types or directories outside of *~/resources/*.**
 
