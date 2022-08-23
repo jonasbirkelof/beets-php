@@ -136,10 +136,12 @@ In this folder are uncompiled code, like scss.
 Store your route files here.
 
 **Common Resource Routes:**
+| Route | Description |
+|---|---|
 | index | Show all listings |
 | show | Show single listing |
 | create | Show form to create new listing |
 | store | Store new listing |
 | edit | Show form to edit listing |
-| update | Update listing
-| destroy | Delete listing
+| update | Update listing |
+| destroy | Delete listing |
