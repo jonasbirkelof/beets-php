@@ -1,4 +1,6 @@
 node_modules/
+public/assets/css
+public/assets/js
 public/assets/mix-manifest.json
 vendor/
 .env
