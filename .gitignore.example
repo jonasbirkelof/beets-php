@@ -1,0 +1,8 @@
+node_modules/
+public/assets/mix-manifest.json
+vendor/
+.env
+.git
+.gitignore
+composer.lock.json
+package-lock.json
