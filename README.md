@@ -103,30 +103,30 @@ Store your exceptions files here.
 **/helpers**<br>
 Store your helper files here. For example custom functions.
 
-**view.php** - Contains the view function that the MVC pattern files are using to render a view.
+- **view.php** - Contains the view function that the MVC pattern files are using to render a view.
 
 **/models**<br>
 Store your model files here. The naming convention is "**User.php**".
 
-**App.php** - Contains methods that are used for the application generally, for instance to set the active navigation item based on current URI.
+- **App.php** - Contains methods that are used for the application generally, for instance to set the active navigation item based on current URI.
 
 ### /config
 Store your config files here.
 
-**app.php** - Contains variables, constants etc that the application uses.<br>
-**data.php** - Contains arrays and lists.<br>
-**dotenv.php** - Contains configurations for the dotenv library.<br>
+- **app.php** - Contains variables, constants etc that the application uses.<br>
+- **data.php** - Contains arrays and lists.<br>
+- **dotenv.php** - Contains configurations for the dotenv library.<br>
 
 ### /public
 This is the public file that the users can access. The main **index.php** file lives here.
 
-**/assets**
+**/assets**<br>
 Here are all the compiled css and js files, as well as images that the application uses.
 
-**/storage**
+**/storage**<br>
 Store uploaded files here, for instence profile pictures and submitted .pdf files.
 
-**/views**
+**/views**<br>
 In this folder are all views. Make your own files to create a local structure. There should not be any connections to the database etc in here. Use the models for calculations and data collections before loading a view.
 
 ### /resources
