@@ -5,9 +5,9 @@
     },
     "autoload": {
         "files": [
-            "./config/app.php",
-            "./config/data.php",
             "./config/dotenv.php",
+            "./config/data.php",
+            "./config/app.php",
             "./app/helpers/view.php"
         ],
         "psr-4": {
