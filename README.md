@@ -6,6 +6,8 @@ Please refer to the documentations for detailed instructions if you want to setu
 
 - [TailwindCSS](https://tailwindcss.com/docs/installation)
 - [BrowserSync](https://browsersync.io/docs)
+- [Bramus Router](https://github.com/bramus/router)
+- [PHP dotenv](https://github.com/vlucas/phpdotenv)
 
 ## Clone or download
 
@@ -76,7 +78,7 @@ ROOT/
 └── webpack.mix.js
 ````
 
-## Root
+### Root
 
 **.gitignore.example** - A template for the .gitignore.<br>
 **.env** - Here goes all important credentials and information that will be used by the system. See the [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv) library. This file must not be pushed to the repo!<br>
@@ -85,45 +87,46 @@ ROOT/
 **.htaccess** This - file is important to point the visitors to the *~/public* folder.<br>
 **composer.json** - This file contains the Composer dependencies needed for the project as well as configurations for the autoloader.<br>
 **package.json** - This file contains the NPM dependencies needed for the project.<br>
-**README.md** - Read Me!.<br>
+**README.md** - Read Me please!<br>
 **tailwind.config.js** - This file contains configurations for the Tailwind CSS compiler.<br>
 **webpack.mix.js** - This file contains Browser-sync configuration and SCSS compiler settings.<br>
 
-## /app
+### /app
 Here goes the app logic files. All connection to the database should be in these files since because they will not be accessible for the users.
 
-#### /controllers
-Store your controller files here. The naming convention is **UserController.php**.
+**/controllers**<br>
+Store your controller files here. The naming convention is "**UserController.php**".
 
-#### /exceptions
+**/exceptions**<br>
 Store your exceptions files here.
 
-#### /helpers
+**/helpers**<br>
 Store your helper files here. For example custom functions.
-*view.php* - Contains the view function that the MVC pattern files are using to render a view.
 
-#### /models
-Store your model files here. The naming convention is **User.php**
+- **view.php** - Contains the view function that the MVC pattern files are using to render a view.
 
-**App.php** - Contains methods that are used for the application generally, for instance to set the active navigation item based on current URI.
+**/models**<br>
+Store your model files here. The naming convention is "**User.php**".
 
-## /config
+- **App.php** - Contains methods that are used for the application generally, for instance to set the active navigation item based on current URI.
+
+### /config
 Store your config files here.
 
-**app.php** - Contains variables, constants etc that the application uses.
-**data.php** - Contains arrays and lists.
-**dotenv.php** - Contains configurations for the dotenv library.
+- **app.php** - Contains variables, constants etc that the application uses.<br>
+- **data.php** - Contains arrays and lists.<br>
+- **dotenv.php** - Contains configurations for the dotenv library.<br>
 
 ### /public
 This is the public file that the users can access. The main **index.php** file lives here.
 
-#### /assets
+**/assets**<br>
 Here are all the compiled css and js files, as well as images that the application uses.
 
-#### /storage
+**/storage**<br>
 Store uploaded files here, for instence profile pictures and submitted .pdf files.
 
-#### /views
+**/views**<br>
 In this folder are all views. Make your own files to create a local structure. There should not be any connections to the database etc in here. Use the models for calculations and data collections before loading a view.
 
 ### /resources
@@ -131,3 +134,14 @@ In this folder are uncompiled code, like scss.
 
 ### /routes
 Store your route files here.
+
+**Common Resource Routes:**
+| Route | Description |
+|---|---|
+| index | Show all listings |
+| show | Show single listing |
+| create | Show form to create new listing |
+| store | Store new listing |
+| edit | Show form to edit listing |
+| update | Update listing |
+| destroy | Delete listing |

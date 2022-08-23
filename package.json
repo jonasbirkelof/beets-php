@@ -1,0 +1,34 @@
+{
+	"name": "application-name",
+	"version": "1.0.0",
+	"description": "Application description.",
+	"main": "index.js",
+	"scripts": {
+	  "build": "mix",
+	  "watch": "mix watch",
+	  "prod": "cross-env NODE_ENV=production npm run build"
+	},
+	"keywords": [],
+	"author": "Jonas Birkelöf",
+	"license": "ISC",
+	"devDependencies": {
+	  "autoprefixer": "^10.4.4",
+	  "browser-sync": "^2.27.9",
+	  "browser-sync-webpack-plugin": "^2.3.0",
+	  "cross-env": "^7.0.3",
+	  "laravel-mix": "^6.0.43",
+	  "postcss": "^8.4.12",
+	  "resolve-url-loader": "^5.0.0",
+	  "sass": "^1.49.9",
+	  "sass-loader": "^12.1.0",
+	  "tailwindcss": "^3.0.23"
+	},
+	"repository": {
+	  "type": "git",
+	  "url": "git+https://github.com/jonasbirkelof/beets-php.git"
+	},
+	"bugs": {
+	  "url": "https://github.com/jonasbirkelof/beets-php/issues"
+	},
+	"homepage": "https://github.com/jonasbirkelof/beets-php#readme"
+  }
