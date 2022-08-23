@@ -94,18 +94,18 @@ ROOT/
 ### /app
 Here goes the app logic files. All connection to the database should be in these files since because they will not be accessible for the users.
 
-**/controllers**
+**/controllers**<br>
 Store your controller files here. The naming convention is "**UserController.php**".
 
-**/exceptions**
+**/exceptions**<br>
 Store your exceptions files here.
 
-**/helpers**
+**/helpers**<br>
 Store your helper files here. For example custom functions.
 
 **view.php** - Contains the view function that the MVC pattern files are using to render a view.
 
-**/models**
+**/models**<br>
 Store your model files here. The naming convention is "**User.php**".
 
 **App.php** - Contains methods that are used for the application generally, for instance to set the active navigation item based on current URI.
