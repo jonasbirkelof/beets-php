@@ -121,7 +121,7 @@ Store your config files here.
 This is the public file that the users can access. The main **index.php** file lives here.
 
 **/assets**<br>
-Here are all the compiled css and js files, as well as images that the application uses.
+Here are all the compiled css and js files, as well as images that the application uses and compiled libraries like locally hosted Bootstrap or FontAwesome.
 
 **/storage**<br>
 Store uploaded files here, for instence profile pictures and submitted .pdf files.
