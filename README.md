@@ -9,7 +9,14 @@ Please refer to the documentations for detailed instructions if you want to setu
 - [Bramus Router](https://github.com/bramus/router)
 - [PHP dotenv](https://github.com/vlucas/phpdotenv)
 
-## Clone or download
+## Contents
+
+- [Clone and Download](#Clone-and-download)
+- [Setup](#setup)
+- [Use with Bootstrap](#use-with-bootstrap)
+- [File Structure](#file-structure)
+
+## Clone and Download
 
 Clone this repo to your localhost using: 
 ````
