@@ -9,7 +9,14 @@ Please refer to the documentations for detailed instructions if you want to setu
 - [Bramus Router](https://github.com/bramus/router)
 - [PHP dotenv](https://github.com/vlucas/phpdotenv)
 
-## Clone or download
+## Contents
+
+- [Clone and Download](#Clone-and-download)
+- [Setup](#setup)
+- [Use with Bootstrap](#use-with-bootstrap)
+- [File Structure](#file-structure)
+
+## Clone and Download
 
 Clone this repo to your localhost using: 
 ````
@@ -19,16 +26,85 @@ git clone https://github.com/jonasbirkelof/beets-php.git
 
 ## Setup
 
-1. Open *~/webpack.mix.js* and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
+1. Open *webpack.mix.js* and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
 2. Rename *.env.example* to *.env*.
 3. Rename *.gitignore.example* to *.gitignore*.
-2. Open *~/.env* and change `APP_URL=http://myapp.local` to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
+2. Open *.env* and change `APP_URL=http://myapp.local` to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
 4. Run `npm install` to download and install all npm dependencies from package.json.
 5. Run `composer install` to download and install all composer dependencies from composer.json.
 6. Run `npm run build` to make an initial compile of Tailwind CSS, SCSS and JS into the *~/public/assets* folder.
 7. Run `npm run watch` to (compile again and) start Browser-ssync. A new browser window or tab will open with the local server running on port 3000 (or higher if you have multiple instances of Browser-sync running).
 
 **Remember to update *tailwind.config.js* and *webpack.mix.js* if you are adding file types or directories outside of *~/resources/*.**
+
+## Use with Bootstrap
+
+You can use Beets PHP with [Bootstrap 5](https://getbootstrap.com) and it's recommended that you use the .scss-files and compile them along with you custom/tailwind scss. That way you can pick what parts of Bootstrap you want to use, for instance the grid system, modal or buttons.
+
+Download Bootstrap via npm:
+
+````
+npm i bootstrap@5.2.0
+````
+
+When the install is done, you need to do some configurations. These steps assume that you want to use the source files (scss) and some js components like modals and popovers.
+
+Open *webpack.mix.js* and add the following to `mix`. This will compile/add the whole Bootstrap bundle .js-file to your assets folder.
+
+````
+.js('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'js')
+````
+
+Add the .js-file to your `<head>` in *~/public/index.php*. 
+
+Then you need to import the Bootstrap files you want to use to your *app.scss* file. First, create a file called *_bootstrap.scss* in *~/resources/scss/*. Then import it in *app.scss* below the Tailwind CSS imports:
+
+````
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'bootstrap';
+````
+
+In *_bootstrap.scss* you import the parts of Bootstrap that you want to use. Refer to the [documentation (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing), but I recommended that you to import everything in the example except for step 6 where you pick your parts. 
+
+Here is an example of *_bootstrap.scss*:
+
+````
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../node_modules/bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/tooltip";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+````
+
+Now when you save or compile via `npm run watch` or `npm run build` you should be able to use Bootstrap with you Beets PHP project.
 
 ## File Structure
 
