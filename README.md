@@ -30,7 +30,7 @@ git clone https://github.com/jonasbirkelof/beets-php.git
 
 **Remember to update *tailwind.config.js* and *webpack.mix.js* if you are adding file types or directories outside of *~/resources/*.**
 
-### Use with Bootstrap
+## Use with Bootstrap
 
 You can use Beets PHP with [Bootstrap 5](https://getbootstrap.com) and it's recommended that you use the .scss-files and compile them along with you custom/tailwind scss. That way you can pick what parts of Bootstrap you want to use, for instance the grid system, modal or buttons.
 
@@ -48,9 +48,21 @@ Open *webpack.mix.js* and add the following to `mix`. This will compile/add the 
 .js('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'js')
 ````
 
-Add the .js-file to your `<head>` in *~/public/index.php*. Then you need to import the Bootstrap files you want to use to *~/resources/scss/app.scss*. First, create a file called *_bootstrap.scss* in *~/resources/scss/*. Then import it in *app.scss* under the Tailwind CSS imports with `@import 'bootstrap';`.
+Add the .js-file to your `<head>` in *~/public/index.php*. 
 
-In *_bootstrap.scss* you will import the parts of Bootstrap that you want to use. Refer to the [documentation (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing), but I recommended you to import everything in the example except for step 6 where you pick your parts. Here is an example:
+Then you need to import the Bootstrap files you want to use to your *app.scss* file. First, create a file called *_bootstrap.scss* in *~/resources/scss/*. Then import it in *app.scss* below the Tailwind CSS imports:
+
+````
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'bootstrap';
+````
+
+In *_bootstrap.scss* you import the parts of Bootstrap that you want to use. Refer to the [documentation (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing), but I recommended that you to import everything in the example except for step 6 where you pick your parts. 
+
+Here is an example of *_bootstrap.scss*:
 
 ````
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
@@ -83,8 +95,9 @@ In *_bootstrap.scss* you will import the parts of Bootstrap that you want to use
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
-
 ````
+
+Now when you save or compile via `npm run watch` or `npm run build` you should be able to use Bootstrap with you Beets PHP project.
 
 ## File Structure
 
