@@ -2,29 +2,47 @@
 
 namespace App\Models;
 
+use App\Helpers\Database;
+
 class User 
 {
 	/**
-	 * GET
-	 * Get selected user data from db
+	 * Get a single user using the $userId.
 	 *
-	 * @param [type] $id
-	 * @return void
+	 * @param int|null $id
+	 * 
+	 * @return array
+	 * 
 	 */
-	public static function get($id)
+	public static function get(int $id = null): array
 	{
-		// Require data file for the sample array
-		require __DIR__ . '/../../config/data.php';
+		// Connect to database
+		$db = new Database();
+		// Create a query
+		$query = "SELECT * FROM users WHERE id = ?";
+		// Fetch result
+		$user = $db->query($query, [$id])->fetch();
 
-		// Simulated db query result
-		$usersList = $usersList;
+		// Return result
+		return $user;
+	}
+	
+	/**
+	 * Get all posts in the users table
+	 *
+	 * @return array
+	 * 
+	 */
+	public static function getAll(): array
+	{
+		// Connect to database
+		$db = new Database();
+		// Create a query
+		$query = "SELECT * FROM users";
+		// Fetch result
+		$usersList = $db->query($query)->fetchAll();
 
-		// Loop through all db records from the query and return result
-		foreach ($usersList as $user) {			
-			// Return record that matches requested user ID
-			if ($user['id'] == $id) {
-				return $user;
-			}
-		}
+		// Return result
+		return $usersList;
 	}
 }

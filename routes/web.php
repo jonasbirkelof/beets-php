@@ -1,8 +1,9 @@
 <?php
 
+use Bramus\Router\Router;
 use App\Controllers\AppController;
 use App\Controllers\UserController;
-use Bramus\Router\Router;
+use App\Controllers\ProductController;
 
 $Route = new Router();
 
@@ -21,6 +22,9 @@ $Route->get('/', [AppController::class, 'home']);
 // Users routes
 $Route->get('/users', [UserController::class, 'index']);
 $Route->get('/users/{userId}', [UserController::class, 'show']);
+
+// Products routes
+$Route->get('/products', [ProductController::class, 'index']);
 
 //Custom 404 Handler
 $Route->set404(function () {

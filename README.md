@@ -28,12 +28,16 @@ git clone https://github.com/jonasbirkelof/beets-php.git
 
 1. Open *webpack.mix.js* and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
 2. Rename *.env.example* to *.env*.
-3. Rename *.gitignore.example* to *.gitignore*.
-2. Open *.env* and change `APP_URL=http://myapp.local` to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
-4. Run `npm install` to download and install all npm dependencies from package.json.
-5. Run `composer install` to download and install all composer dependencies from composer.json.
-6. Run `npm run build` to make an initial compile of Tailwind CSS, SCSS and JS into the *~/public/assets* folder.
-7. Run `npm run watch` to (compile again and) start Browser-ssync. A new browser window or tab will open with the local server running on port 3000 (or higher if you have multiple instances of Browser-sync running).
+3. Open *.env* and update the following variables:
+	- Change `APP_NAME="My App"` to the app name.
+	- Change `APP_URL=http://myapp.local` to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
+	- Change `APP_COPYRIGHT="The Owner"` to the copyright holder (you or your organization).
+	- Change `DB_*` to your database credentials.
+4. Rename *.gitignore.example* to *.gitignore*.
+5. Run `npm install` to download and install all npm dependencies from package.json.
+6. Run `composer install` to download and install all composer dependencies from composer.json.
+7. Run `npm run build` to make an initial compile of Tailwind CSS, SCSS and JS into the *~/public/assets* folder.
+8. Run `npm run watch` to (compile again and) start Browser-ssync. A new browser window or tab will open with the local server running on port 3000 (or higher if you have multiple instances of Browser-sync running).
 
 **Remember to update *tailwind.config.js* and *webpack.mix.js* if you are adding file types or directories outside of *~/resources/*.**
 
@@ -105,6 +109,38 @@ Here is an example of *_bootstrap.scss*:
 ````
 
 Now when you save or compile via `npm run watch` or `npm run build` you should be able to use Bootstrap with you Beets PHP project.
+
+## Use a database
+
+The database class is located in the `~/app/database/` folder.
+Set the database credentials in `./.env`. The database class will use them to create the PDO connection
+
+!!! The Database class is required in `/public/index.php` which makes it accessible from every view.
+
+The `PDO::ATTR_DEFAULT_FETCH_MODE` is set to `PDO::FETCH_ASSOC` so that `->fetch()` and `->fetchAll()` will use `PDO::FETCH_ASSOC` by default. If you want to use semthing else you can override it within the `()`.
+
+Below is an example for making a query:
+
+```php
+// Create a new instance of the database class
+$db = new Database();
+
+// Fetch all users
+// Create a query
+$query = "SELECT * FROM users";
+// Fetch result
+$usersList = $db->query($query)->fetchAll();
+// Return result
+return $usersList;
+
+// Fetch a single post
+// Create a query
+$query = "SELECT * FROM users WHERE id = ?";
+// Fetch result
+$user = $db->query($query, [$id])->fetch();
+// Return result
+return $user;
+```
 
 ## File Structure
 

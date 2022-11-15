@@ -22,6 +22,9 @@ use App\Models\App;
 				<li class="nav-list-item">
 					<a href="/users/1" class="<?=App::setActiveNavItem('/users/1')?>">User/1</a>
 				</li>
+				<li class="nav-list-item">
+					<a href="/products" class="<?=App::setActiveNavItem('/products')?>">Products</a>
+				</li>
 			</ul>
 		</nav>
 	</div>

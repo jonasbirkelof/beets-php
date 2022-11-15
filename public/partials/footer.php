@@ -13,7 +13,7 @@
 						<a href="/users">Users</a>
 					</li>
 					<li class="nav-list-item">
-						<a href="/users/1">User/1</a>
+						<a href="/products">Products</a>
 					</li>
 				</ul>
 			</nav>
