@@ -14,6 +14,7 @@ Please refer to the documentations for detailed instructions if you want to setu
 - [Clone and Download](#Clone-and-download)
 - [Setup](#setup)
 - [Use with Bootstrap](#use-with-bootstrap)
+- [Use a database](#use-a-database)
 - [File Structure](#file-structure)
 
 ## Clone and Download
@@ -36,8 +37,9 @@ git clone https://github.com/jonasbirkelof/beets-php.git
 4. Rename *.gitignore.example* to *.gitignore*.
 5. Run `npm install` to download and install all npm dependencies from package.json.
 6. Run `composer install` to download and install all composer dependencies from composer.json.
-7. Run `npm run build` to make an initial compile of Tailwind CSS, SCSS and JS into the *~/public/assets* folder.
-8. Run `npm run watch` to (compile again and) start Browser-ssync. A new browser window or tab will open with the local server running on port 3000 (or higher if you have multiple instances of Browser-sync running).
+7. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
+8. Run `npm run build` to make an initial compile of Tailwind CSS, SCSS and JS into the *~/public/assets* folder.
+9. Run `npm run watch` to (compile again and) start Browser-ssync. A new browser window or tab will open with the local server running on port 3000 (or higher if you have multiple instances of Browser-sync running).
 
 **Remember to update *tailwind.config.js* and *webpack.mix.js* if you are adding file types or directories outside of *~/resources/*.**
 
@@ -149,8 +151,12 @@ ROOT/
 |
 ├── app/
 |   ├── controllers/
+|   ├── database/
+|   |   └── Database.php
+|   |
 |   ├── exceptions/
 |   ├── helpers/
+|   |   ├── functions.php
 |   |   └── view.php
 |   |
 |   └── models/
@@ -180,9 +186,10 @@ ROOT/
 |   └── web.php
 |
 ├── .env.example
-├── .gitignore
+├── .gitignore.example
 ├── .htaccess
 ├── composer.json
+├── myapp.sql
 ├── package.json
 ├── README.md
 ├── tailwind.config.js
@@ -191,12 +198,13 @@ ROOT/
 
 ### Root
 
-**.gitignore.example** - A template for the .gitignore.<br>
 **.env** - Here goes all important credentials and information that will be used by the system. See the [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv) library. This file must not be pushed to the repo!<br>
 **.env.example** - This file should only contain example/placeholder data that can be pushed to a repo for sharing.<br>
 **.gitignore** - Setup your gitignore to exclude files and folders that you don' want to push to the repo (lie the .env file).<br>
+**.gitignore.example** - A template for the .gitignore.<br>
 **.htaccess** This - file is important to point the visitors to the *~/public* folder.<br>
 **composer.json** - This file contains the Composer dependencies needed for the project as well as configurations for the autoloader.<br>
+**myapp.sql** - This contains the query for creating the sample database used in the example files.<br>
 **package.json** - This file contains the NPM dependencies needed for the project.<br>
 **README.md** - Read Me please!<br>
 **tailwind.config.js** - This file contains configurations for the Tailwind CSS compiler.<br>
@@ -208,12 +216,18 @@ Here goes the app logic files. All connection to the database should be in these
 **/controllers**<br>
 Store your controller files here. The naming convention is "**UserController.php**".
 
+**/database**<br>
+Store your database files here.
+
+- **Database.php** - Contains the database class that handles PDO connection and query requests.
+
 **/exceptions**<br>
 Store your exceptions files here.
 
 **/helpers**<br>
 Store your helper files here. For example custom functions.
 
+- **functions.php** - Contains app relevant functions like the `dd()` function.
 - **view.php** - Contains the view function that the MVC pattern files are using to render a view.
 
 **/models**<br>
