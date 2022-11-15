@@ -184,8 +184,6 @@ You can use either the pre-compiled files or the sass files in your project. Fol
 The database class is located in the `~/app/database/` folder.
 Set the database credentials in `./.env`. The database class will use them to create the PDO connection
 
-!!! The Database class is required in `/public/index.php` which makes it accessible from every view.
-
 The `PDO::ATTR_DEFAULT_FETCH_MODE` is set to `PDO::FETCH_ASSOC` so that `->fetch()` and `->fetchAll()` will use `PDO::FETCH_ASSOC` by default. If you want to use semthing else you can override it within the `()`.
 
 Below is an example for making a query:
