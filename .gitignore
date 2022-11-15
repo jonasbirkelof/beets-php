@@ -1,9 +1,0 @@
-node_modules/
-public/assets/css/app.css
-public/assets/js/app.css
-public/assets/mix-manifest.json
-vendor/
-.env
-.git
-composer.lock
-package-lock.json
