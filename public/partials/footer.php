@@ -41,5 +41,5 @@
 	</div>
 </footer>
 <section id="copyright">
-	&copy; <?=$_ENV['APP_COPYRIGHT']?> <?=date('Y')?>
+	&copy; <?= $_ENV['APP_COPYRIGHT'] ?> <?= date('Y') ?>
 </section>
