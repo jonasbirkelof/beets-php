@@ -21,9 +21,9 @@ Please refer to the documentations for detailed instructions if you want to setu
 ## Clone and Download
 
 Clone this repo to your localhost using: 
-````
+```bash
 git clone https://github.com/jonasbirkelof/beets-php.git
-````
+```
 ...and follow the setup instructions below, or just download the zip-file.
 
 ## Setup
@@ -52,40 +52,40 @@ You can use Beets PHP with [Bootstrap 5](https://getbootstrap.com) and it's reco
 
 Download Bootstrap via npm:
 
-````
+```bash
 npm i bootstrap@5.2.0
-````
+```
 
 When the install is done, you need to do some configurations. These steps assume that you want to use the source files (scss) and some js components like modals and popovers.
 
 Open *webpack.mix.js* and add the following to `mix`. This will compile/add the whole Bootstrap bundle .js-file to your assets folder.
 
-````
+```js
 .js('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'js')
-````
+```
 
 Add the compiled .js-file in `~/public/assets/js/` to your `<head>` in `~/public/partials/page-head.php`:
 
-```
+```html
 <script src="<?= APP_URL ?>/assets/js/bootstrap.bundle.js"></script>
 
 ```
 
 Then you need to import the Bootstrap files you want to use to your *app.scss* file. First, create a file called *_bootstrap.scss* in *~/resources/scss/*. Then import it in *app.scss* below the Tailwind CSS imports:
 
-````
+```scss
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 @import 'bootstrap';
-````
+```
 
 In *_bootstrap.scss* you import the parts of Bootstrap that you want to use. Refer to the [documentation (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing), but I recommended that you to import everything in the example except for step 6 where you pick your parts. 
 
 Here is an example of *_bootstrap.scss*:
 
-````
+```scss
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../node_modules/bootstrap/scss/functions";
 
@@ -139,7 +139,7 @@ Here is an example of *_bootstrap.scss*:
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
-````
+```
 
 Now when you save or compile via `npm run watch` or `npm run build` you should be able to use Bootstrap with you Beets PHP project.
 
@@ -147,8 +147,8 @@ Now when you save or compile via `npm run watch` or `npm run build` you should b
 
 If you have installed Bootstrap you might want to use our own addon-library for Bootstrap called Beets CSS.
 
-[GitHub](https://github.com/jonasbirkelof/beets-css)
-[Documentation](https://jonasbirkelof.github.io/beets-css)
+- [GitHub](https://github.com/jonasbirkelof/beets-css)
+- [Documentation](https://jonasbirkelof.github.io/beets-css)
 
 You can use either the pre-compiled files or the sass files in your project. Follow the instructions below for the preferred method.
 
@@ -157,9 +157,8 @@ You can use either the pre-compiled files or the sass files in your project. Fol
 1. Download the compiled .css file from the [GitHub page](https://github.com/jonasbirkelof/beets-css/releases).
 2. Place `beets.css` in `~/public/assets/css/`.
 3. Include the .css file inside `<head>` in `~/public/partials/page-head.php`:
-	```
+	```html
 	<link rel="stylesheet" href="<?= APP_URL ?>/assets/css/beets.css">
-	<script src="<?= APP_URL ?>/assets/js/beets.js"></script>
 	```
 
 ### Sass files
@@ -169,7 +168,7 @@ You can use either the pre-compiled files or the sass files in your project. Fol
 3. Unzip the folder, copy the content inside `beets-css-master/src/scss/` and paste it into `~/resources/scss/beets-css/`.
 4. Open the file `~/resources/scss/beets-css/beets.scss` and check/update the paths to the Bootstrap references. Beets CSS uses Bootstrap as a dependency so some of its files are used when compiling. The correct path could look something like this: `@import "../../../node_modules/bootstrap/scss/functions";`.
 5. Open the file `~/resources/scss/app.css` and include `beets-css/beets` under Bootstrap:
-	```
+	```scss
 	@import 'tailwindcss/base';
 	@import 'tailwindcss/components';
 	@import 'tailwindcss/utilities';
@@ -214,7 +213,7 @@ return $user;
 
 ## File Structure
 
-````
+```
 ROOT/
 |
 ├── app/
@@ -262,7 +261,7 @@ ROOT/
 ├── README.md
 ├── tailwind.config.js
 └── webpack.mix.js
-````
+```
 
 ### Root
 
