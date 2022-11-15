@@ -1,3 +1,10 @@
-<h1>Users</h1>
+<?php require "partials/page-head.php" ; ?>
+<?php require "partials/navigation.php" ; ?>
 
-<p>List all users...</p>
+<main id="main">
+	<h1><?= $view['title'] ?></h1>
+	<p>List all users...</p>
+</main>
+
+<?php require "partials/footer.php"; ?>
+<?php require "partials/page-foot.php"; ?>

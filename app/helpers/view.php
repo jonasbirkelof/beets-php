@@ -10,7 +10,7 @@ namespace App\Helpers;
  * @param array $data
  * @return void
  */
-function view($pattern, $data = []) 
+function view($pattern, $view = [], $data = []) 
 {
 	// Check if the view pattern contains a '.' and if so, extract the folder and the file
 	if (str_contains($pattern, '.')) {

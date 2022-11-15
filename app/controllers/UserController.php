@@ -13,9 +13,11 @@ class UserController
 	 *
 	 * @return void
 	 */
-	public function index()
+	public static function index()
 	{
-		return view('users.index');
+		return view('users.index', [
+			'title' => 'Users'
+		]);
 	}
 
 	/**
@@ -28,8 +30,8 @@ class UserController
 	public static function show($userId) 
 	{
 		// request a view and pass data from the model
-		return view('users.show',
-			User::get($userId)
-		);
+		return view('users.show',[
+			'title' => 'User'
+		], User::get($userId));
 	}
 }

@@ -14,6 +14,6 @@ class App
 	public static function setActiveNavItem($input) {
 		$activeUri = $_SERVER['REQUEST_URI'];
 
-		return ($activeUri == $input || $input) ? 'active' : null;
+		return $activeUri == $input ? 'active' : null;
 	}
 }
