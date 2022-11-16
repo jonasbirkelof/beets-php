@@ -9,7 +9,6 @@
 	  "prod": "cross-env NODE_ENV=production npm run build"
 	},
 	"keywords": [],
-	"author": "Jonas Birkelöf",
 	"license": "ISC",
 	"devDependencies": {
 	  "autoprefixer": "^10.4.4",

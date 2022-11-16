@@ -1,20 +1,20 @@
 <?php
 
-// Simulated db record
-$usersList = [
+// Example data array
+$productsList = [
 	[
 		'id' => 1,
-		'name' => 'Jim Halpert',
-		'department' => 'Sales',
+		'title' => 'Copy paper',
+		'price' => 5,
 	],
 	[
 		'id' => 2,
-		'name' => 'Dwight Schrute',
-		'department' => 'Sales',
+		'title' => 'Copy paper, reem',
+		'price' => 20,
 	],
 	[
 		'id' => 3,
-		'name' => 'Michael Scott',
-		'department' => 'Management',
+		'title' => 'Folder transparent',
+		'price' => 1,
 	],
 ];	

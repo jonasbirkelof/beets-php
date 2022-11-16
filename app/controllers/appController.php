@@ -12,8 +12,10 @@ class AppController
 	 *
 	 * @return void
 	 */
-	public function home()
+	public static function home()
 	{
-		return view('home');
+		return view('home', [
+			'title' => 'Home'
+		]);
 	}
 }

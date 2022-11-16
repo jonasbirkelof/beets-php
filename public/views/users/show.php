@@ -1,17 +1,27 @@
-<h1>User</h1>
+<?php require "partials/page-head.php" ; ?>
+<?php require "partials/navigation.php" ; ?>
 
-<p>List a single user.</p>
+<main id="main">
+	<h1><?= $view['title'] ?></h1>
+	<p>List a single user from the database.</p>
+	<h4>Example</h4>
 
-<h4>Example</h4>
+	<?php
 
-<?php
+	// Check if the model has returned any data
+	if (!$data) {
+		// Print error message
+		echo "The user does not exist.";
+	} else {
+		// Print the requested data
+		echo '<pre class="bg-slate-100 p-4 rounded-lg">';
+		print_r($data);
+		echo '</pre>';
+	}
 
-// Check if the model has returned any data
-if (!$data) {
-	die('The user does not exist.');
-}
+	?>
+	
+</main>
 
-// Print the requested data
-echo '<pre class="bg-slate-100 p-4 rounded-lg">';
-print_r($data);
-echo '</pre>';
+<?php require "partials/footer.php"; ?>
+<?php require "partials/page-foot.php"; ?>

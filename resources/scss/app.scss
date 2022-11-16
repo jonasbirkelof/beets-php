@@ -48,9 +48,13 @@ p {
     @apply h-screen;
 }
 
-#header {
+#navigation {
     @apply bg-slate-800 text-white;
     @apply px-3 sm:px-0;
+
+    &.navigation-sticky {
+        @apply sticky top-0;
+    }
 
     .header-container {
         @apply container mx-auto;
@@ -89,6 +93,11 @@ p {
         @apply text-4xl font-black tracking-widest text-white;
         @apply m-0;
     }
+
+    &.hero-fluid {
+        @apply mx-0;
+        max-width: unset;
+    }
 }
 
 #main {
@@ -108,7 +117,7 @@ p {
 
     .footer-section {
         @apply flex flex-grow flex-col;
-        @apply py-4;
+        @apply py-10;
     }
 
     .footer-title {
@@ -130,6 +139,16 @@ p {
                 @apply py-1;
             }
         }
+    }
+}
+
+#copyright {
+    @apply py-2;
+    @apply bg-gray-900;
+    @apply text-gray-500 text-center;
+
+    a {
+        @apply text-gray-600 hover:text-gray-400;
     }
 }
 
