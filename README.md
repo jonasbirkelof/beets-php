@@ -1,4 +1,4 @@
-# Beets PHP
+<img src="assets/images/beetsphp_col_100x421.png" style="height: 80px;">
 
 Beets PHP is a starter template for advanced PHP projects containing an MVC filesystem, routing, autoloader, .env functionality, Scss compiler, Tailwind CSS, Browser-sync and more. 
 
