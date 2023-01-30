@@ -44,115 +44,61 @@ git clone https://github.com/jonasbirkelof/beets-php.git
 
 **Remember to update *tailwind.config.js* and *webpack.mix.js* if you are adding file types or directories outside of *~/resources/*.**
 
-## Use with Bootstrap
+## Use with libraries
 
-You can use Beets PHP with [Bootstrap 5](https://getbootstrap.com) and it's recommended that you use the .scss-files and compile them along with you custom/tailwind scss. That way you can pick what parts of Bootstrap you want to use, for instance the grid system, modal or buttons.
+Beets PHP comes prepared for use with [Tailwind CSS](https://tailwindcss.com) and [Bootstrap](https://getbootstrap.com). In the folder **~/examples** are two folders named **bootstrap** and **tailwindcss** containing files that will help you get started as well as an example site with some basic styling.
 
-**Please keep in mind that if you use Bootstrap together with Tailwind CSS, the classes might interfere with each other.**
+Follow the installation instructions below to get started with your preferred library.
 
-Download Bootstrap via npm:
+### Tailwind CSS
 
-```bash
-npm i bootstrap@5.2.0
-```
+1. Download Taliwind CSS via npm:
+    ```bash
+    npm i tailwindcss@^3.2.0
+	```
+2. Move the file **~/examples/tailwindcss/tailwind.config.js** to the project root (same place as, for instance **webpack.mix.js**).
+3. Open **~/webpack.mix.js** and add the following to `mix`.
+	```js
+	.options({
+		postCss: [require('tailwindcss')],
+	})
+	```
+4. Replace the main scss file **~/resources/scss/app.scss** with the **~/examples/tailwindcss/app.scss**.
+5. Replace the folders **partials** and **views** in the  **~/public** folder with the ones in **~/examples/tailwindcss/**.
+6. Compile your scss using `npm run watch` or `npm run build`.
 
-When the install is done, you need to do some configurations. These steps assume that you want to use the source files (scss) and some js components like modals and popovers.
+### Bootstrap
 
-Open *webpack.mix.js* and add the following to `mix`. This will compile/add the whole Bootstrap bundle .js-file to your assets folder.
+It's recommended that you use the .scss source files and compile them along with you custom scss. That way you can pick what parts of Bootstrap you want to use, for instance the grid system, modal or buttons.
 
-```js
-.js('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'js')
-```
+1. Download Bootstrap via npm:
+	```bash
+	npm i bootstrap@5.2.0
+	```
+2. Open *webpack.mix.js* and add the following to `mix`. This will compile/add the whole Bootstrap bundle .js-file to your assets folder.
+	```js
+	.js('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'js')
+	```
+3. Add the compiled .js-file in **~/public/assets/js/** to your `<head>` in **~/public/partials/page-head.php**:
+	```html
+	<script src="<?= APP_URL ?>/assets/js/bootstrap.bundle.js"></script>
+	```
+4. Copy the file **~/examples/bootstrap/_bootstrap.scss** to **~/resources/scss/**.
+	**Optional:** Customize the content of Bootstrap in **_bootstrap.scss**. The file contains every part of Bootstrap and it's recommended that you to import every "step" except for step 6 where you pick the parts you want to use. Refer to the [Bootstraop documentation (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing) for details.
+5. Replace the main scss file **~/resources/scss/app.scss** with the file **~/examples/bootstrap/app.scss**	
+6. Replace the folders **partials** and **views** in the  **~/public** folder with the ones in **~/examples/bootstrap/**.
+7. Compile your scss using `npm run watch` or `npm run build`.
 
-Add the compiled .js-file in `~/public/assets/js/` to your `<head>` in `~/public/partials/page-head.php`:
-
-```html
-<script src="<?= APP_URL ?>/assets/js/bootstrap.bundle.js"></script>
-
-```
-
-Then you need to import the Bootstrap files you want to use to your *app.scss* file. First, create a file called *_bootstrap.scss* in *~/resources/scss/*. Then import it in *app.scss* below the Tailwind CSS imports:
-
-```scss
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-@import 'bootstrap';
-```
-
-In *_bootstrap.scss* you import the parts of Bootstrap that you want to use. Refer to the [documentation (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing), but I recommended that you to import everything in the example except for step 6 where you pick your parts. 
-
-Here is an example of *_bootstrap.scss*:
-
-```scss
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "../../node_modules/bootstrap/scss/functions";
-
-// 2. Include any default variable overrides here
-
-// 3. Include remainder of required Bootstrap stylesheets
-@import "../../node_modules/bootstrap/scss/variables";
-
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
-@import "../../node_modules/bootstrap/scss/maps";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/root";
-
-// 6. Optionally include any other parts as needed (pick and chose!)
-@import "../../node_modules/bootstrap/scss/accordion";
-@import "../../node_modules/bootstrap/scss/alert";
-@import "../../node_modules/bootstrap/scss/badge";
-@import "../../node_modules/bootstrap/scss/breadcrumb";
-@import "../../node_modules/bootstrap/scss/button-group";
-@import "../../node_modules/bootstrap/scss/buttons";
-@import "../../node_modules/bootstrap/scss/card";
-@import "../../node_modules/bootstrap/scss/carousel";
-@import "../../node_modules/bootstrap/scss/containers";
-@import "../../node_modules/bootstrap/scss/close";
-@import "../../node_modules/bootstrap/scss/dropdown";
-@import "../../node_modules/bootstrap/scss/forms";
-@import "../../node_modules/bootstrap/scss/grid";
-@import "../../node_modules/bootstrap/scss/helpers";
-@import "../../node_modules/bootstrap/scss/images";
-@import "../../node_modules/bootstrap/scss/list-group";
-@import "../../node_modules/bootstrap/scss/modal";
-@import "../../node_modules/bootstrap/scss/nav";
-@import "../../node_modules/bootstrap/scss/navbar";
-@import "../../node_modules/bootstrap/scss/offcanvas";
-@import "../../node_modules/bootstrap/scss/pagination";
-@import "../../node_modules/bootstrap/scss/placeholders";
-@import "../../node_modules/bootstrap/scss/popover";
-@import "../../node_modules/bootstrap/scss/progress";
-@import "../../node_modules/bootstrap/scss/reboot";
-@import "../../node_modules/bootstrap/scss/spinners";
-@import "../../node_modules/bootstrap/scss/tables";
-@import "../../node_modules/bootstrap/scss/toasts";
-@import "../../node_modules/bootstrap/scss/tooltip";
-@import "../../node_modules/bootstrap/scss/transitions";
-@import "../../node_modules/bootstrap/scss/type";
-@import "../../node_modules/bootstrap/scss/utilities";
-
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "../../node_modules/bootstrap/scss/utilities/api";
-
-// 8. Add additional custom code here
-```
-
-Now when you save or compile via `npm run watch` or `npm run build` you should be able to use Bootstrap with you Beets PHP project.
-
-## Use with Beets CSS
+### Beets CSS
 
 If you have installed Bootstrap you might want to use our own addon-library for Bootstrap called Beets CSS.
 
-- [GitHub](https://github.com/jonasbirkelof/beets-css)
-- [Documentation](https://jonasbirkelof.github.io/beets-css)
+- [Beets CSS on GitHub](https://github.com/jonasbirkelof/beets-css)
+- [Beets CSS Documentation](https://jonasbirkelof.github.io/beets-css)
 
 You can use either the pre-compiled files or the sass files in your project. Follow the instructions below for the preferred method.
 
-### Pre-compiled files
+#### Pre-compiled files
 
 1. Download the compiled .css file from the [GitHub page](https://github.com/jonasbirkelof/beets-css/releases).
 2. Place `beets.css` in `~/public/assets/css/`.
@@ -161,23 +107,18 @@ You can use either the pre-compiled files or the sass files in your project. Fol
 	<link rel="stylesheet" href="<?= APP_URL ?>/assets/css/beets.css">
 	```
 
-### Sass files
+#### Source files
 
-1. Go to `~/resources/scss/` and create a folder called `beets-css`.
-2. Download the source code from the [GitHub page](https://github.com/jonasbirkelof/beets-css/archive/refs/heads/master.zip).
-3. Unzip the folder, copy the content inside `beets-css-master/src/scss/` and paste it into `~/resources/scss/beets-css/`.
-4. Open the file `~/resources/scss/beets-css/beets.scss` and check/update the paths to the Bootstrap references. Beets CSS uses Bootstrap as a dependency so some of its files are used when compiling. The correct path could look something like this: `@import "../../../node_modules/bootstrap/scss/functions";`.
-5. Open the file `~/resources/scss/app.css` and include `beets-css/beets` under Bootstrap:
+1. Create a folder named **beets-css** in **~/resources/scss/**.
+2. Download the Beets CSS source code from the [GitHub page](https://github.com/jonasbirkelof/beets-css/archive/refs/heads/master.zip).
+3. Unzip the folder, copy the content inside **beets-css-master/src/scss/** and paste it into the folder you created in step 1; **~/resources/scss/beets-css/**.
+4. Open the file **~/resources/scss/beets-css/beets.scss** and check/update the paths to the Bootstrap references. Beets CSS uses Bootstrap as a dependency so some of its files are used when compiling. The correct path could look something like this: `@import "../../../node_modules/bootstrap/scss/functions";`.
+5. Open the file **~/resources/scss/app.css** and include Beets CSS below Bootstrap:
 	```scss
-	@import 'tailwindcss/base';
-	@import 'tailwindcss/components';
-	@import 'tailwindcss/utilities';
-
 	@import 'bootstrap';
-
 	@import 'beets-css/beets';
 	```
-6. Now you should be able to compile `app.scss` as usual with `npm run watch` or `npm run build`.
+6. Now you should be able to compile app.scss as usual with `npm run watch` or `npm run build`.
 
 ## Database
 
@@ -335,3 +276,20 @@ Store your route files here.
 | edit | Show form to edit listing |
 | update | Update listing |
 | destroy | Delete listing |
+
+// webpack.mix.js
+
+let mix = require('laravel-mix');
+
+mix
+    .setPublicPath('./public/assets')
+    .js('resources/js/app.js', 'js')
+    .sass('resources/scss/app.scss', 'css')
+    .browserSync({
+        proxy: 'beetsphp.local', // Set to your "localhost/folder" or virtual host "myvhost.local"
+        files: [
+            './**/*.html',
+            './**/*.php',
+            './resources'
+        ]
+    });

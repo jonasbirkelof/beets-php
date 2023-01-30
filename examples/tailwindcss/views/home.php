@@ -2,7 +2,7 @@
 <?php require "partials/navigation.php" ; ?>
 
 <!-- Hero -->
-<section id="hero">
+<section id="hero" class="hero-fluid">
     <h1 class="hero-title">Hero section</h1>
 </section>
 
