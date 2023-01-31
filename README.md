@@ -6,16 +6,14 @@ Beets PHP is a starter template for semi-advanced PHP projects containing an MVC
 - [Bramus Router](https://github.com/bramus/router)
 - [vlucas PHP dotenv](https://github.com/vlucas/phpdotenv)
 - [BrowserSync](https://browsersync.io/docs)
-- [TailwindCSS](https://tailwindcss.com)
-- [Bootstrap](https://getbootstrap.com)
-- [Beets CSS](https://github.com/jonasbirkelof/beets-css)
 
 # Table of Contents
 
-- [Clone and Download](#Clone-and-download)
-- [Setup](#setup)
-- [Use with Bootstrap](#use-with-bootstrap)
-- [Use with Beets CSS](#use-with-beets-css)
+- [Installation](#installation)
+- [Use with frameworks](#use-with-frameworks)
+	- [Tailwind CSS](#tailwind-css)
+	- [Bootstrap](#bootstrap)
+	- [Beets CSS](#beets-css)
 - [Database](#database)
 - [File Structure](#file-structure)
 
@@ -36,28 +34,27 @@ git clone https://github.com/jonasbirkelof/beets-php.git
 	```bash
 	composer install
 	```
-4. Rename `.env.example` to `.env`.
-5. Open `.env` and update the following variables:
+4. Rename `.gitignore.example` to `.gitignore`.
+5. Rename `.env.example` to `.env` and update the following variables:
 	- `APP_NAME`: The name of the app.
 	- `APP_URL`: The URL of the app.
 	- `APP_COPYRIGHT`: the copyright holder (you or your organization).
 	- `DB_*`: your database credentials.
-6. Rename `.gitignore.example` to `.gitignore`.
-7. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
-8. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
+6. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
+7. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
 	```bash
 	npm run build
 	```
-9. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
+8. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
 	```bash
 	npm run watch
 	```
 
-**Remember to update `tailwind.config.js` and `webpack.mix.js` if you are adding file types or directories outside of `~/resources/`.**
+**Remember to update `webpack.mix.js` if you are adding file types or directories outside of `~/resources/`.**
 
 # Use with frameworks
 
-Beets PHP can be used with basic basic front-end languages like HTML, CSS or JS and comes prepared with a simple example site to demonstrate the functionality of the router and the other functions. 
+Beets PHP can be used with any basic basic front-end language like HTML, CSS or JS and comes prepared with a simple example site to demonstrate the functionality of the router and the other functions. 
 
 The folder `~/examples/` contains two folders with files that can be used to quickly get you started with either [Tailwind CSS](https://tailwindcss.com) or [Bootstrap](https://getbootstrap.com) if you would like to use any of them. They also comes with the same simple example site styled using the corresponing framework.
 
@@ -80,11 +77,13 @@ The folder `~/examples/` contains two folders with files that can be used to qui
 5. Replace the folders `~/public/partials/` and `~/public/views/` with the same folders from the examples folder.
 6. Compile your SCSS using `npm run watch` or `npm run build`.
 
+**Remember to update `tailwind.config.js` and `webpack.mix.js` if you are adding file types or directories outside of `~/resources/`.**
+
 ## Bootstrap
 
 [Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
-You can use Bootstrap's SCSS source files and compile them into your own CSS file. That way you can pick what parts of Bootstrap you want to use, for instance only the grid system, modals or buttons! The file `~/examples/bootstrap/_bootstrap.scss` contains every part of Bootstrap and it's recommended that you to import every "step" except for step 6 where you pick the parts you want to use. Refer to the [Bootstraop documentation on importing (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing) for details.
+You can use Bootstrap's SCSS source files and compile them into your own CSS file. That way you can pick what parts of Bootstrap you want to use, for instance only the grid system, modals or buttons! The file `~/examples/bootstrap/_bootstrap.scss` contains every part of Bootstrap and it's recommended that you to import every "step" except for step 6 where you pick the parts you want to use. Refer to the [Bootstrap documentation on importing (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing) for details.
 
 1. Download Bootstrap via npm:
 	```bash
