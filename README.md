@@ -16,6 +16,12 @@ Beets PHP is a starter template for semi-advanced PHP projects containing an MVC
 	- [Beets CSS](#beets-css)
 - [Database](#database)
 - [File Structure](#file-structure)
+	- [Root](#root)
+	- [/app](#app)
+	- [/config](#config)
+	- [/public](#public)
+	- [/resources](#resources)
+	- [/routes](#routes)
 
 # Installation
 
