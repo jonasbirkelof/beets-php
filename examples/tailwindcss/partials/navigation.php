@@ -14,16 +14,16 @@ use App\Models\App;
 		<nav id="top-nav">
 			<ul class="nav-list">
 				<li class="nav-list-item">
-					<a href="/" class="<?=App::setActiveNavItem('/')?>">Home</a>
+					<a href="/" class="<?= App::setActiveNavItem('/') ?>">Home</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="/users" class="<?=App::setActiveNavItem('/users')?>">Users</a>
+					<a href="/users" class="<?= App::setActiveNavItem('/users') ?>">Users</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="/users/1" class="<?=App::setActiveNavItem('/users/1')?>">Users/1</a>
+					<a href="/users/1" class="<?= App::setActiveNavItem('/users/1') ?>">Users/1</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="/products" class="<?=App::setActiveNavItem('/products')?>">Products</a>
+					<a href="/products" class="<?= App::setActiveNavItem('/products') ?>">Products</a>
 				</li>
 			</ul>
 		</nav>
