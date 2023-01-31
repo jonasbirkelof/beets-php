@@ -3,7 +3,7 @@
 
 <main id="main">
 	<h1><?= $view['title'] ?></h1>
-	<p>List all products in the $products array (~/app/config/data.php).</p>
+	<p>List all users in the database.</p>
 	<h4>Example</h4>
 	
 	<?php
@@ -11,10 +11,10 @@
 	// Check if the model has returned any data
 	if (!$data) {
 		// Print error message
-		echo "No products in array.";
+		echo "No users in database.";
 	} else {
 		// Print the requested data
-		echo '<pre style="background-color: #f3f3f3; padding: 1rem;">';
+		echo '<pre class="bg-slate-100 p-4 rounded-lg">';
 		print_r($data);
 		echo '</pre>';
 	}

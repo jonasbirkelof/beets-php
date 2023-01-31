@@ -14,7 +14,7 @@
 		echo "The user does not exist.";
 	} else {
 		// Print the requested data
-		echo '<pre class="bg-slate-100 p-4 rounded-lg">';
+		echo '<pre style="background-color: #f3f3f3; padding: 1rem;">';
 		print_r($data);
 		echo '</pre>';
 	}

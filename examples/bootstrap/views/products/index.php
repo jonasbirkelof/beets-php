@@ -1,8 +1,8 @@
 <?php require "partials/page-head.php" ; ?>
 <?php require "partials/navigation.php" ; ?>
 
-<main id="main">
-	<h1><?= $view['title'] ?></h1>
+<main id="main" class="container-xl py-3 px-0 px-sm-2">
+	<h1 class="mb-4"><?= $view['title'] ?></h1>
 	<p>List all products in the $products array (~/app/config/data.php).</p>
 	<h4>Example</h4>
 	
@@ -14,7 +14,7 @@
 		echo "No products in array.";
 	} else {
 		// Print the requested data
-		echo '<pre style="background-color: #f3f3f3; padding: 1rem;">';
+		echo '<pre class="bg-light rounded-3 p-4">';
 		print_r($data);
 		echo '</pre>';
 	}

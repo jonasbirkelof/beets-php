@@ -14,7 +14,7 @@
 		echo "No products in array.";
 	} else {
 		// Print the requested data
-		echo '<pre style="background-color: #f3f3f3; padding: 1rem;">';
+		echo '<pre class="bg-slate-100 p-4 rounded-lg">';
 		print_r($data);
 		echo '</pre>';
 	}
