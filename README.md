@@ -31,16 +31,16 @@ Clone this repo to your localhost:
 git clone https://github.com/jonasbirkelof/beets-php.git
 ```
 
-1. Rename `webpack.mix.js.example` to `webpack.mix.js`.
-2. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
-3. Install the dependencies from package.json.
+1. Install the dependencies from package.json.
 	```bash
 	npm install
 	```
-4. Install the dependencies from composer.json.
+2. Install the dependencies from composer.json.
 	```bash
 	composer install
 	```
+3. Rename `webpack.mix.js.example` to `webpack.mix.js`.
+4. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
 5. Rename `.gitignore.example` to `.gitignore`.
 6. Rename `.env.example` to `.env` and update the following variables:
 	- `APP_NAME`: The name of the app.
@@ -127,10 +127,16 @@ If you are using Bootstrap you might want to use the [Beets CSS](https://github.
 
 ### SCSS source files
 
+> Beets CSS is lacking a proper source download at the moment but will be added to the release soon. For the moment, you will need to download the whole repo and grab the source files from there.
+
+Beets CSS uses Bootstrap as a dependency so some of its files are used when compiling.
+
+Please visit the [Beets CSS documentation](https://jonasbirkelof.github.io/beets-css) for details on how you can customize your code!
+
 1. Create a folder named `beets-css` inside `~/resources/scss/`.
 2. Download the source code (.zip) from the [GitHub page](https://github.com/jonasbirkelof/beets-css/releases).
 3. Unzip the file and move the contents of `beets-css-master/src/scss/` to the folder you created in step 1: `~/resources/scss/beets-css/`.
-4. Open the file `~/resources/scss/beets-css/beets.scss` and check/update the paths to the Bootstrap SCSS source files. Beets CSS uses Bootstrap as a dependency so some of its files are used when compiling.
+4. Open the file `~/resources/scss/beets-css/beets.scss` and check/update the paths to the Bootstrap SCSS source files. The path should be somethink like `../../../node_modules/bootstrap/scss/functions`. 
 5. Open the main SCSS file `~/resources/scss/app.css` and import Beets CSS below Bootstrap:
 	```scss
 	@import 'bootstrap';
