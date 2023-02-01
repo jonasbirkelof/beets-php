@@ -25,34 +25,34 @@ Beets PHP is a starter template for semi-advanced PHP projects containing an MVC
 
 # Installation
 
-Clone this repo to your localhost: 
+You can easily install Beets PHP by simply cloning this repo to you localhost and build your environment from there. Make sure to go through all the steps below to complete the installation and setup your app-specific variables.
 
-```bash
-git clone https://github.com/jonasbirkelof/beets-php.git
-```
-
-1. Install the dependencies from package.json.
+1. Clone this repo to your localhost: 
+	```bash
+	git clone https://github.com/jonasbirkelof/beets-php.git
+	```
+2. Install the dependencies from package.json.
 	```bash
 	npm install
 	```
-2. Install the dependencies from composer.json.
+3. Install the dependencies from composer.json.
 	```bash
 	composer install
 	```
-3. Rename `webpack.mix.js.example` to `webpack.mix.js`.
-4. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
-5. Rename `.gitignore.example` to `.gitignore`.
-6. Rename `.env.example` to `.env` and update the following variables:
+4. Rename `webpack.mix.js.example` to `webpack.mix.js`.
+5. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
+6. Rename `.gitignore.example` to `.gitignore`.
+7. Rename `.env.example` to `.env` and update the following variables:
 	- `APP_NAME`: The name of the app.
 	- `APP_URL`: The URL of the app.
 	- `APP_COPYRIGHT`: the copyright holder (you or your organization).
 	- `DB_*`: your database credentials.
-7. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
-8. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
+8. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
+9. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
 	```bash
 	npm run build
 	```
-9. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
+10. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
 	```bash
 	npm run watch
 	```
