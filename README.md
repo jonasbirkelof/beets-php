@@ -31,27 +31,28 @@ Clone this repo to your localhost:
 git clone https://github.com/jonasbirkelof/beets-php.git
 ```
 
-1. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
-2. Install the dependencies from package.json.
+1. Rename `webpack.mix.js.example` to `webpack.mix.js`.
+2. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
+3. Install the dependencies from package.json.
 	```bash
 	npm install
 	```
-3. Install the dependencies from composer.json.
+4. Install the dependencies from composer.json.
 	```bash
 	composer install
 	```
-4. Rename `.gitignore.example` to `.gitignore`.
-5. Rename `.env.example` to `.env` and update the following variables:
+5. Rename `.gitignore.example` to `.gitignore`.
+6. Rename `.env.example` to `.env` and update the following variables:
 	- `APP_NAME`: The name of the app.
 	- `APP_URL`: The URL of the app.
 	- `APP_COPYRIGHT`: the copyright holder (you or your organization).
 	- `DB_*`: your database credentials.
-6. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
-7. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
+7. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
+8. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
 	```bash
 	npm run build
 	```
-8. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
+9. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
 	```bash
 	npm run watch
 	```
