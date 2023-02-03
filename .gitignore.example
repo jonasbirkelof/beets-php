@@ -1,7 +1,0 @@
-examples/
-node_modules/
-vendor/
-.env
-composer.lock
-myapp.sql
-package-lock.json

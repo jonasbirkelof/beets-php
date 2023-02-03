@@ -2,35 +2,38 @@
 
 use Bramus\Router\Router;
 use App\Controllers\AppController;
+use App\Controllers\HomeController;
 use App\Controllers\UserController;
 use App\Controllers\ProductController;
 
-$Route = new Router();
+$Router = new Router();
 
-// Common Resource Routes:
-// index - Show all listings
-// show - Show single listing
-// create - Show form to create new listing
-// store - Store new listing
-// edit - Show form to edit listing
-// update - Update listing
-// destroy - Delete listing  
+/**
+ * Common Resource Routes:
+ * 
+ * index 	- GET - Show all listings
+ * show 	- GET - Show single listing
+ * create 	- GET - Show form to create new listing
+ * store 	- POST - Store new listing
+ * edit 	- GET - Show form to edit listing
+ * update 	- PATCH - Update listing
+ * destroy 	- DELETE - Delete listing  
+ */
 
-// General app routes
-$Route->get('/', [AppController::class, 'home']);
+// Home routes
+$Router->get('/', [HomeController::class, 'index']);
 
 // Users routes
-$Route->get('/users', [UserController::class, 'index']);
-$Route->get('/users/{userId}', [UserController::class, 'show']);
+$Router->get('/users', [UserController::class, 'index']);
+$Router->get('/users/{userId}', [UserController::class, 'show']);
 
 // Products routes
-$Route->get('/products', [ProductController::class, 'index']);
+$Router->get('/products', [ProductController::class, 'index']);
 
-//Custom 404 Handler
-$Route->set404(function () {
-	header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-	echo '404, route not found!';
+// General app routes
+$Router->set404(function () {
+	AppController::view404();
 });
 
 // Run it!
-$Route->run();
+$Router->run();

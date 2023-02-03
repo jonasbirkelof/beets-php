@@ -8,7 +8,7 @@
 
 <!-- Main -->
 <main id="main">
-	<h1><?= $view['title'] ?></h1>
+	<h1><?= $title ?></h1>
 	<p>This is the homepage.</p>
 </main>
 

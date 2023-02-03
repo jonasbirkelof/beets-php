@@ -1,0 +1,9 @@
+node_modules/
+public/assets/css/
+public/assets/js/
+public/assets/*.json
+vendor/
+.env
+composer.lock
+package-lock.json
+webpack.mix.js

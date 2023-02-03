@@ -19,12 +19,12 @@ class User
 		// Connect to database
 		$db = new Database();
 		// Create a query
-		$query = "SELECT * FROM users WHERE id = ?";
+		$sql = "SELECT * FROM users WHERE id = ?";
 		// Fetch result
-		$user = $db->query($query, [$id])->fetch();
+		$result = $db->query($sql, [$id])->fetch();
 
 		// Return result
-		return $user;
+		return $result ?: [];
 	}
 	
 	/**
@@ -38,11 +38,11 @@ class User
 		// Connect to database
 		$db = new Database();
 		// Create a query
-		$query = "SELECT * FROM users";
+		$sql = "SELECT * FROM users";
 		// Fetch result
-		$usersList = $db->query($query)->fetchAll();
+		$result = $db->query($sql)->fetchAll();
 
 		// Return result
-		return $usersList;
+		return $result ?: [];
 	}
 }

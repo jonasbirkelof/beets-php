@@ -9,15 +9,17 @@ class UserController
 {
 	public static function index()
 	{
-		return view('users.index', [
-			'title' => 'Users'
-		], User::getAll());
+		return view('users/index.php', [
+			'title' => 'Users',
+			'usersList' => User::getAll()
+		]);
 	}
 
 	public static function show(int $userId)
 	{
-		return view('users.show',[
-			'title' => 'User'
-		], User::get($userId));
+		return view('users/show.php', [
+			'title' => 'User',
+			'user' => User::get($userId)
+		]);
 	}
 }

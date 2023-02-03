@@ -5,17 +5,11 @@ namespace App\Controllers;
 use function App\Helpers\view;
 
 class AppController
-{
-	/**
-	 * Home
-	 * View home page
-	 *
-	 * @return void
-	 */
-	public static function home()
+{	
+	public static function view404()
 	{
-		return view('home', [
-			'title' => 'Home'
+		return view('404.php', [
+			'title' => '404'
 		]);
 	}
 }
