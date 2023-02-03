@@ -1,15 +1,10 @@
 <?php require "partials/page-head.php" ; ?>
 <?php require "partials/navigation.php" ; ?>
 
-<!-- Hero -->
-<section id="hero">
-    <h1 class="hero-title">Hero section</h1>
-</section>
-
 <!-- Main -->
 <main id="main">
-	<h1><?= $title ?></h1>
-	<p>This is the homepage.</p>
+	<h1>404: Page not found</h1>
+	<p><a href="/">Go to home</a>.</p>
 </main>
 
 <?php require "partials/footer.php"; ?>

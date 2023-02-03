@@ -9,8 +9,9 @@ class ProductController
 {
 	public static function index()
 	{
-		return view('products.index', [
-			'title' => 'Products'
-		], Product::getAll());
+		return view('products/index.php', [
+			'title' => 'Products',
+			'productsList' => Product::getAll()
+		]);
 	}
 }
