@@ -41,18 +41,17 @@ You can easily install Beets PHP by simply cloning this repo to you localhost an
 	```
 4. Rename `webpack.mix.js.example` to `webpack.mix.js`.
 5. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
-6. Rename `.gitignore.example` to `.gitignore`.
-7. Rename `.env.example` to `.env` and update the following variables:
+6. Rename `.env.example` to `.env` and update the following variables:
 	- `APP_NAME`: The name of the app.
 	- `APP_URL`: The URL of the app.
 	- `APP_COPYRIGHT`: the copyright holder (you or your organization).
 	- `DB_*`: your database credentials.
-8. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
-9. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
+7. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
+8. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
 	```bash
 	npm run build
 	```
-10. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
+9. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
 	```bash
 	npm run watch
 	```
