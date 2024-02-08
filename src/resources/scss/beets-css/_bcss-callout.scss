@@ -1,0 +1,49 @@
+$bcss-callout-bg-opacity:			0.1;
+$bcss-callout-bg-color-default:		var(--bs-secondary-rgb);
+$bcss-callout-border-radius: 		$border-radius;
+$bcss-callout-icon-gutter:			$spacer;
+$bcss-callout-margin-bottom:		1rem;
+$bcss-callout-padding-x: 			$spacer;
+$bcss-callout-padding-y: 			$spacer;
+
+.callout {
+	background-color: rgba($bcss-callout-bg-color-default, $bcss-callout-bg-opacity);
+	border-radius: $bcss-callout-border-radius;
+	margin-bottom: $bcss-callout-margin-bottom;	
+	padding: $bcss-callout-padding-y $bcss-callout-padding-x * 1.5;
+}
+
+// scss-docs-start callout-modifiers
+// Generate contextual modifier classes for colorizing the callout.
+@each $type, $values in $bcss-callout-types {
+	.callout-#{$type} {
+		@include callout-variant($values);
+	}
+}
+// scss-docs-end callout-modifiers
+
+.callout-header {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	font-weight: 600;
+
+	&::before {
+		margin-right: $bcss-callout-icon-gutter;
+		content: "";
+		min-width: $font-size-base;
+		height: $font-size-base;
+	}
+}
+
+.callout-header + .callout-body {
+	padding-top: $bcss-callout-padding-y / 2;
+}
+
+// No icon
+.callout-no-icon > .callout-header::before {
+	margin: 0;
+	min-width: 0;
+	height: 0;
+	background-image: none;
+}

@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  php:
+    container_name: php
+    hostname: php
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes: 
+      - ./src:/var/www/html
+    ports:
+      - 9000:80
+    
+  mysql_db:
+    image: mysql:latest
+    container_name: mysql
+    hostname: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    hostname: phpmyadmin
+    restart: always
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
+    volumes:
+      - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Web interface
+
+volumes:
+  db_data:

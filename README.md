@@ -1,290 +1,187 @@
-<img src=".github/assets/images/beetsphp_col_100x421.png#gh-light-mode-only" style="height: 80px;">
+<img src=".github/assets/images/beetsphp_col_100x421.png#gh-light-mode-only-" style="height: 80px;">
 <img src=".github/assets/images/beetsphp_col_inv_100x421.png#gh-dark-mode-only" style="height: 80px;">
 
-Beets PHP is a starter template for semi-advanced PHP projects containing an MVC filesystem, routing, autoloader, .env functionality, SCSS compiler, Browser-sync and more. It makes use of other great libraries for the core functionality so make sure you check them out, say thanks and cunsult their documentation!
+# About
+
+Beets PHP is a micro framework, scaffolding and jump start to your own PHP projects. Beets PHP uses a RESTful aproach with an MVC filesystem and includes a router, autoloader, SCSS compiler, Browser-sync, Docker compatibility, a complete user administration system and more!
+
+Also included is [Beets CSS](https://github.com/jonasbirkelof/beets-css) and [Beets Layout](https://github.com/jonasbirkelof/beets-layout) which together with [Bootstrap](https://getbootstrap.com) provides you with a completely designed user interface with collapsing sidebar, color adjustments and custom components. This being said, Beets PHP is framework agnostic so if you don't fancy Bootstrap, you can just install [Tailwind CSS](https://tailwindcss.com/) or whatever you want!
+
+# Documentation
+
+The full documentation for the different Beets projects can be found on the [Beets documentation website](https://jonasbirkelof.github.io/beets).
+
+# Dependencies
+
+All libraries and packages are downloaded upon installation, but please take time to acknowledge these amazing people and visit their pages for more detaild documentation:
 
 - [Bramus Router](https://github.com/bramus/router)
 - [vlucas PHP dotenv](https://github.com/vlucas/phpdotenv)
-- [BrowserSync](https://browsersync.io/docs)
-
-# Table of Contents
-
-- [Installation](#installation)
-- [Use with frameworks](#use-with-frameworks)
-	- [Tailwind CSS](#tailwind-css)
-	- [Bootstrap](#bootstrap)
-	- [Beets CSS](#beets-css)
-- [Database](#database)
-- [File Structure](#file-structure)
-	- [Root](#root)
-	- [/app](#app)
-	- [/config](#config)
-	- [/public](#public)
-	- [/resources](#resources)
-	- [/routes](#routes)
+- [BrowserSync](https://browsersync.io/docs) (not with Docker)
+- [MailHog](https://github.com/mailhog/MailHog) (only with Docker)
 
 # Installation
 
-You can easily install Beets PHP by simply cloning this repo to you localhost and build your environment from there. Make sure to go through all the steps below to complete the installation and setup your app-specific variables.
+You can build your app with Docker or a local stack like Xampp. Please refer to the corresponding installation instructions since they differ a little from each other.
 
-1. Clone this repo to your localhost: 
-	```bash
-	git clone https://github.com/jonasbirkelof/beets-php.git
-	```
-2. Install the dependencies from package.json.
-	```bash
-	npm install
-	```
-3. Install the dependencies from composer.json.
-	```bash
-	composer install
-	```
-4. Rename `webpack.mix.js.example` to `webpack.mix.js`.
-5. Open `webpack.mix.js` and change the browserSync proxy to either your local vhost (i.e. *myapp.local*) or your localhost location (i.e. *localhost/myapp*).
-6. Rename `.env.example` to `.env` and update the following variables:
-	- `APP_NAME`: The name of the app.
-	- `APP_URL`: The URL of the app.
-	- `APP_COPYRIGHT`: the copyright holder (you or your organization).
-	- `DB_*`: your database credentials.
-7. Import the file `myapp.sql` to your sql server to create the test database that is used for the included examples.
-8. Make an initial compile of your SCSS and JS into the `~/public/assets/` folder.
-	```bash
-	npm run build
-	```
-9. Start the local dev server using Browser-sync. A new browser window or tab will open with the local server running.
-	```bash
-	npm run watch
-	```
+## Install for Docker
 
-**Remember to update `webpack.mix.js` if you are adding file types or directories outside of `~/resources/`.**
+Out of the box this project is configured to be used with Docker, though it is possible to use this project with something like Xampp.
 
-# Use with frameworks
+This is a quick-start guide. For the full installation process, please visit [the documentation](https://jonasbirkelof.github.io/beets/beets-php/).
 
-Beets PHP can be used with any basic basic front-end language like HTML, CSS or JS and comes prepared with a simple example site to demonstrate the functionality of the router and the other functions. 
-
-The folder `~/examples/` contains two folders with files that can be used to quickly get you started with either [Tailwind CSS](https://tailwindcss.com) or [Bootstrap](https://getbootstrap.com) if you would like to use any of them. They also comes with the same simple example site styled using the corresponing framework.
-
-## Tailwind CSS
-
-[Tailwind CSS Documentation](https://tailwindcss.com/docs/installation)
-
-1. Download Taliwind CSS via npm:
+1. Open a terminal in the project root, navigate to the `/src` folder and install the dependencies.
     ```bash
-    npm i tailwindcss@^3.2.0
-	```
-2. Move the file `tailwind.config.js` from the examples folder to the project root.
-3. Open `~/webpack.mix.js` and add the following to `mix`.
-	```js
-	.options({
-		postCss: [require('tailwindcss')],
-	})
-	```
-4. Replace the main SCSS file `~/resources/scss/app.scss` with `app.scss` from the examples folder.
-5. Replace the folders `~/public/partials/` and `~/public/views/` with the same folders from the examples folder.
-6. Compile your SCSS using `npm run watch` or `npm run build`.
+    cd src
+    ```
 
-**Remember to update `tailwind.config.js` and `webpack.mix.js` if you are adding file types or directories outside of `~/resources/`.**
+    ```bash
+    npm install
+    ```
+    
+    ```bash
+    composer install
+    ```
 
-## Bootstrap
+2. Open the file `~/src/vendor/bramus/router/src/Bramus/Router.php`.
 
-[Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+3. Find the `run()` method around line 274. 
 
-You can use Bootstrap's SCSS source files and compile them into your own CSS file. That way you can pick what parts of Bootstrap you want to use, for instance only the grid system, modals or buttons! The file `~/examples/bootstrap/_bootstrap.scss` contains every part of Bootstrap and it's recommended that you to import every "step" except for step 6 where you pick the parts you want to use. Refer to the [Bootstrap documentation on importing (option B)](https://getbootstrap.com/docs/5.2/customize/sass/#importing) for details.
+    Replace this line:
 
-1. Download Bootstrap via npm:
-	```bash
-	npm i bootstrap@^5.2.0
-	```
-2. Open `webpack.mix.js` and add the following to `mix`.
-	```js
-	.js('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'js')
-	```
-	This will compile and add the whole bundled Bootstrap JS file to your `~/public/assets/js/` folder.
-3. Add the path to the compiled JS file to the `<head>` tag in `~/public/partials/page-head.php`:
-	```html
-	<script src="<?= APP_URL ?>/assets/js/bootstrap.bundle.js"></script>
-	```
-4. Copy the file `_bootstrap.scss` from the examples folder to `~/resources/scss/`.
-5. Replace the main SCSS file `~/resources/scss/app.scss` with `app.scss` from the examples folder.
-6. Replace the folders `~/public/partials/` and `~/public/views/` with the same folders from the examples folder.
-7. Compile your SCSS using `npm run watch` or `npm run build`.
+    ```php
+    $this->requestedMethod = $this->getRequestMethod();
+    ```
 
-## Beets CSS
+    ...with this line and save the file:
 
-[Beets CSS Documentation](https://jonasbirkelof.github.io/beets-css)
+    ```php
+    $this->requestedMethod = $_POST['_method'] ?? $this->getRequestMethod();
+    ```
 
-If you are using Bootstrap you might want to use the [Beets CSS](https://github.com/jonasbirkelof/beets-css) addon-library for Bootstrap! You can use either the pre-compiled CSS file or the source SCSS files with your project.
+4. Build the application to generate JavaScript and CSS files:
 
-### Pre-compiled CSS
+    ```bash
+    npm run build
+    ```
 
-1. Download the compiled CSS file from the [GitHub page](https://github.com/jonasbirkelof/beets-css/releases).
-2. Place `beets.css` in `~/public/assets/css/`.
-3. Add the path to the CSS file to the `<head>` tag in `~/public/partials/page-head.php`:
-	```html
-	<link rel="stylesheet" href="<?= APP_URL ?>/assets/css/beets.css">
-	```
+5. Run docker compose from the root folder.
 
-### SCSS source files
+    ```bash
+    cd ..
+    ```
 
-> Beets CSS is lacking a proper source download at the moment but will be added to the release soon. For the moment, you will need to download the whole repo and grab the source files from there.
+    ```bash
+    docker compose up --build -d
+    ```
 
-Beets CSS uses Bootstrap as a dependency so some of its files are used when compiling.
+6. When the containers are running, open PhpMyadmin ([localhost:9001](http://localhost:9001)) and import the database file `~/src/beetsphp.sql`. Use the default login credentials:
 
-Please visit the [Beets CSS documentation](https://jonasbirkelof.github.io/beets-css) for details on how you can customize your code!
+    - Server: mysql_db
+    - Username: root
+    - Password: root
 
-1. Create a folder named `beets-css` inside `~/resources/scss/`.
-2. Download the source code (.zip) from the [GitHub page](https://github.com/jonasbirkelof/beets-css/releases).
-3. Unzip the file and move the contents of `beets-css-master/src/scss/` to the folder you created in step 1: `~/resources/scss/beets-css/`.
-4. Open the file `~/resources/scss/beets-css/beets.scss` and check/update the paths to the Bootstrap SCSS source files. The path should be somethink like `../../../node_modules/bootstrap/scss/functions`. 
-5. Open the main SCSS file `~/resources/scss/app.css` and import Beets CSS below Bootstrap:
-	```scss
-	@import 'bootstrap';
-	@import 'beets-css/beets';
-	```
-6. Compile your SCSS using `npm run watch` or `npm run build`.
+Open your website: [localhost:9000](http://localhost:9000).
 
-# Database
+Open MailHog: [localhost:8025](http://localhost:8025)
 
-The database class is located in the `~/app/database/` folder. Set the database credentials in the `~/.env` file. The database class will use these credentials to establish the PDO connection.
+## Install for Xampp
 
-The `PDO::ATTR_DEFAULT_FETCH_MODE` is set to `PDO::FETCH_ASSOC` so that methods `fetch()` and `fetchAll()` will return a associative array by default. If you want to use something else you can override it with attributes in the methods: `fetchAll(PDO::FETCH_BOTH);`.
+Out of the box this project is configured to be used with Docker but if you would rather use something like Xampp, follow these steps.
 
-This is a simple example for making a query:
+This is a quick-start guide. For the full installation process, please visit [the documentation](https://jonasbirkelof.github.io/beets/beets-php/).
 
-```php
-// Create a new instance of the database class
-$db = new Database();
+1. Delete the following files and folders completely:
 
-// Fetch all users
-$sql = "SELECT * FROM users"; // Create a SQL query
-$usersList = $db->query($sql)->fetchAll(); // Fetch the results
-return $usersList; // Return the results
+- `~/apache/`
+- `~/phpmyadmin/`
+- `~/Dockerfile`
+- `~/docker-compose.yml`
 
-// Fetch a single post
-$query = "SELECT * FROM users WHERE id = ?"; // Create a SQL query
-$user = $db->query($query, [$id])->fetch(); // Fetch the results
-return $user; // Return the results
-```
+2. Move the whole content of the `~/src/` folder to the root directory `(~/)` and delete the now empty `src` folder.
 
-# File Structure
+3. Open a terminal in the project root and install the dependencies.
+    ```bash
+    npm install
+    ```
 
-This is the core file structure of the framework. Other folders like `.git/` and `examples/` are not essential and are not presented here.
+    ```bash
+    composer install
+    ```
 
-```
-ROOT/
-│
-├── app/
-│   ├── controllers/
-│   ├── database/
-|   |   └── Database.php
-|   ├── helpers/
-|   |   ├── functions.php
-|   |   └── view.php
-|   └── models/
-|       └── App.php
-|
-├── config/
-|   ├── app.php
-|   ├── data.php
-|   └── dotenv.php
-|
-├── public/
-|   ├── assets/
-|   |   ├── css/
-|   |   ├── images/
-|   |   └── js/
-|   ├── partials/
-|   ├── storage/
-|   ├── views/
-|   └── index.php
-│
-├── resources/
-|   ├── js/
-|   └── scss/
-|
-├── routes/
-|   └── web.php
-|
-├── .env.example
-├── .gitignore.example
-├── .htaccess
-├── composer.json
-├── myapp.sql
-├── package.json
-├── README.md
-└── webpack.mix.js.example
-```
+4. Add a virtual host for the project by adding the following code to `<path-to-xampp>/apache/conf/extra/httpd-vhosts.conf`:
 
-### Root
+    ```txt
+    <VirtualHost *:80>
+        DocumentRoot "<path-to-xampp-localhost>/beets-php/public"
+        ServerName beetsphp.local
+    </VirtualHost>
+    ```
 
-**.env** - Here goes all important credentials and information that will be used by the system. **This file must not be made public!**<br>
-**.env.example** - A template for `.env`. This file should only contain placeholder data.<br>
-**.gitignore** - Setup your gitignore to exclude files and folders that you don't want to push to the repo, like the `.env` file).<br>
-**.gitignore.example** - A template for `.gitignore`.<br>
-**.htaccess** - This file points the visitors to the `~/public/` folder.<br>
-**composer.json** - This file contains the Composer dependencies and the autoloader configuration.<br>
-**myapp.sql** - This contains the query for creating the sample database used in the example files.<br>
-**package.json** - This file contains the npm dependencies.<br>
-**README.md** - Read Me, please! :)<br>
-**webpack.mix.js** - This file contains Browser-sync configuration and SCSS compiler settings.<br>
-**webpack.mix.js.example** - A template for `webpack.mix.js`.<br>
+5. Open Notepad as an **administrator** and open the hosts file `C:\Windows\System32\drivers\etc\hosts`. You will have to change the dropdown from only showing .txt files to show all files.
 
-### /app
-Here goes the app-wide logic files. All connection to the database should be in these files so that they will not be accessible for the users.
+6. Add the following line the the file, save and close it.
 
-**/controllers**<br>
-Store your controller files here. The naming convention is "UserController.php".
+    ```txt
+    127.0.0.1 beetsphp.local
+    ```
 
-**/database**<br>
-Store your database files here.
+7. Open the file `~/.env`.
 
-- **Database.php** - Contains the database class that handles the PDO connection and query requests.
+    a. Update `APP_URL` to the virtual host you just created:
 
-**/helpers**<br>
-Store your helper files here, for example custom functions and classes.
+    ```php
+    APP_URL=http://beetsphp.local:80
+    ```
 
-- **functions.php** - Contains app-wide relevant functions like the `dd()` (die-and-dump) function.
-- **view.php** - Contains the view function that is used to render a view.
+    b. Update your database credentials. For Xampp it might look something like this:
 
-**/models**<br>
-Store your model files here. The naming convention is "User.php".
+    ```txt
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=beetsphp
+    DB_CHARSET=utf8mb4
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
-- **App.php** - Contains methods that are used app-wide, for instance a function to toggle the active navigation option.
+8. Open the file `~/webpack.mix.js`.
 
-### /config
-Store your config files here.
+    a. Update the BrowserSync proxy with the virtual host we just created:
 
-- **app.php** - App-wide variables, constants etc.<br>
-- **data.php** - App-wide arrays and lists.<br>
-- **dotenv.php** - Configuration for the dotenv library.<br>
+    ```js
+    .browserSync({
+      proxy: 'beetsphp.local:80'
+    ])
+    ```
 
-### /public
-This is the public file that the users can access. The main `index.php` file lives here. Make sure not to store any secret information in this folder.
+9. Open the router file `~/vendor/bramus/router/src/Bramus/Router.php` and find the `run()` method around line 274.
 
-**/assets**<br>
-Here are all the compiled CSS and JS files, as well as images that the app uses.
+    Replace this line:
 
-**/storage**<br>
-Store files that are uploaded via the app here, for instence profile pictures and files.
+    ```php
+    $this->requestedMethod = $this->getRequestMethod();
+    ```
+    
+    ...with this line and save the file:
 
-**/views**<br>
-Here are all the views. Make your own files to create a local structure. There should not be any connections to the database etc in here. Use the models for calculations and data collections before loading a view.
+    ```php
+    $this->requestedMethod = $_POST['_method'] ?? $this->getRequestMethod();
+    ```
 
-### /resources
-In this folder are uncompiled code, like SCSS.
+10. Build the application to generate JavaScript and CSS files:
 
-### /routes
-Store your route files here.
+    ```bash
+    npm run build
+    ```
 
-- **web.php** - Here are all the routes that the app uses.
+11. Open PhpMyadmin (localhost/phpmyadmin) and import the database file `~/beetsphp.sql`.
 
-	**Common Resource Routes:**
-	| Route | Description |
-	|---|---|
-	| index | Show all listings |
-	| show | Show single listing |
-	| create | Show form to create new listing |
-	| store | Store new listing |
-	| edit | Show form to edit listing |
-	| update | Update listing |
-	| destroy | Delete listing |
+12. Start the dev server with:
+
+    ```bash
+    npm run dev
+    ```
+
+Open your website: [localhost:3000](http://localhost:3000).

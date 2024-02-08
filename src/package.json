@@ -1,0 +1,36 @@
+{
+	"name": "beets-php",
+	"version": "1.0.0",
+	"description": "Beets PHP",
+	"main": "index.js",
+	"scripts": {
+		"copy-bootstrap-js": "cpy node_modules/bootstrap/dist/js/bootstrap.bundle.min.js public/assets/js/ --flat",
+		"build": "mix && npm run copy-bootstrap-js",
+		"dev": "mix watch",
+		"prod": "cross-env NODE_ENV=production npm run build"
+	},
+	"keywords": [],
+	"license": "ISC",
+	"devDependencies": {
+		"autoprefixer": "^10.4.4",
+		"browser-sync": "^2.27.9",
+		"browser-sync-webpack-plugin": "^2.3.0",
+		"cross-env": "^7.0.3",
+		"laravel-mix": "^6.0.43",
+		"resolve-url-loader": "^5.0.0",
+		"sass": "^1.49.9",
+		"sass-loader": "^12.1.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jonasbirkelof/beets-php.git"
+	},
+	"bugs": {
+		"url": "https://github.com/jonasbirkelof/beets-php/issues"
+	},
+	"homepage": "https://github.com/jonasbirkelof/beets-php#readme",
+	"dependencies": {
+		"bootstrap": "^5.2.3",
+		"cpy-cli": "^5.0.0"
+	}
+}

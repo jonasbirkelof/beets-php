@@ -1,0 +1,386 @@
+// 
+// ESSENTIAL
+// 
+
+
+
+#beets-layout .bl__sidebar {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	position: fixed;
+	height: 100vh;
+	min-width: $sidebar-width;
+	max-width: $sidebar-width;
+	z-index: 1000;
+	overflow: auto;
+	
+	.sidebar__header {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		max-height: $header-height;
+		min-height: $header-height;
+	}
+
+	.sidebar__body {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-flex: 1;
+		    -ms-flex-positive: 1;
+		        flex-grow: 1;
+	}
+
+	.sidebar__footer {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		max-height: $footer-height;
+		min-height: $footer-height;
+	}
+
+	// Collapsible sidebar
+	&.sidebar-collapse {
+		// Styling on smaller viewports
+		@media (max-width: $breakpoint) {
+			min-width: $sidebar-show-width;
+			-webkit-transform: $sidebar-hide;
+			    -ms-transform: $sidebar-hide;
+			        transform: $sidebar-hide;
+		}
+		// Animate sidebar when showing/hiding
+		&.sidebar-show,
+		&.sidebar-hiding {
+			-webkit-transition: $sidebar-transition;
+			-o-transition: $sidebar-transition;
+			transition: $sidebar-transition;
+		}
+		&.sidebar-show {
+			-webkit-transform: $sidebar-show;
+			    -ms-transform: $sidebar-show;
+			        transform: $sidebar-show;
+		}
+		&.sidebar-hiding {
+			-webkit-transform: $sidebar-hide;
+			    -ms-transform: $sidebar-hide;
+			        transform: $sidebar-hide;
+		}
+	}
+}
+
+
+
+// 
+// DESIGN
+// 
+
+
+
+#beets-layout .bl__sidebar {
+	background-color: $sidebar-bg;
+	color: $sidebar-color;
+	border-right: $sidebar-border;
+
+	.sidebar__body {
+		padding: $gutter-y $gutter-x;
+	}
+
+	.sidebar__header,
+	.sidebar__footer {
+		padding-left: $gutter-x;
+		padding-right: $gutter-x;
+	}
+
+	.sidebar__header {
+		border-bottom: $sidebar-border;
+	}
+
+	.sidebar__footer {
+		border-top: $sidebar-border;
+	}
+
+	.sidebar__divider {
+		border-color: $layout-border-color;
+		opacity: $divider-opacity;
+		margin-top: $gutter-y;
+		margin-bottom: $gutter-y;
+		margin-left: -$gutter-x;
+		margin-right: -$gutter-x;
+	}	
+}
+
+// Navigation
+#beets-layout .bl__sidebar .sidebar__nav {
+	width: 100%;
+
+	// Main menu
+	.nav-list {
+		margin-left: -$gutter-x;
+		margin-right: -$gutter-x;
+		padding: 0;
+		list-style: none;
+
+		.nav-item {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+		}
+
+		.nav-link {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			width: 100%;
+			height: $sidebar-nav-link-height;
+			color: inherit;
+			text-decoration: none;
+			padding-left: $gutter-x;
+			padding-right: $gutter-x;
+
+			.nav-link-icon {
+				display: inline-block;
+				text-align: start;
+				width: $sidebar-nav-link-icon-width;
+				color: inherit;
+				opacity: $sidebar-nav-link-icon-opacity;
+			}
+
+			// Nav link hover and active state
+			&:hover,
+			&.active {
+				background-color: $sidebar-nav-link-bg-active;
+
+				.nav-link-icon {
+					opacity: $sidebar-nav-link-icon-opacity-active;
+				}
+			}
+			&.active {
+				font-weight: $sidebar-nav-link-fw-active;
+				opacity: $sidebar-nav-link-icon-opacity-active;
+			}
+		}
+	}
+
+	// Submenu
+	.nav-list__submenu {
+		padding: 0;
+		list-style: none;
+		background-color: $sidebar-submenu-bg;
+		height: 0;
+		overflow: hidden;
+
+		.nav-link {
+			padding-left: $gutter-x + $sidebar-nav-link-icon-width;
+		}
+	}
+	.list-item.open > .nav-list__submenu {
+		height: auto;
+	}
+	.nav-link__submenu::after {
+		content: '';
+		opacity: $sidebar-submenu-indicator-opacity;
+		position: absolute;
+		right: $gutter-x;
+		width: $sidebar-submenu-indicator-width;
+		height: $sidebar-submenu-indicator-height;
+		@include submenu-indicator($sidebar-submenu-indicator-color);
+		background-position: $sidebar-submenu-indicator-position;
+		background-repeat: no-repeat;
+		-webkit-transition: $sidebar-submenu-indicator-transition;
+		-o-transition: $sidebar-submenu-indicator-transition;
+		transition: $sidebar-submenu-indicator-transition;
+	}
+	.nav-link__submenu.active::after {
+		-webkit-transform: $sidebar-submenu-indicator-transform-active;
+		    -ms-transform: $sidebar-submenu-indicator-transform-active;
+		        transform: $sidebar-submenu-indicator-transform-active;
+	}
+
+	// Custom accent color
+	&.nav-accent {
+		.nav-link.active:not(.nav-link__submenu),
+		.nav-list__submenu .nav-link.active {
+			color: $nav-accent-custom-color;
+		}
+	}
+	// Theme based accent colors
+	@each $color, $value in $bootstrap-theme-colors {
+		&.nav-accent-#{$color} {
+			.nav-link.active:not(.nav-link__submenu),
+			.nav-list__submenu .nav-link.active {
+				color: $value;
+			}
+		}
+	}
+}
+
+// Compact navigation
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__compact {
+	.nav-list .nav-link {
+		height: $sidebar-compact-nav-link-height;
+	}
+}
+
+// Rounded navigation style
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__rounded {
+	.nav-list {
+		margin-left: -$sidebar-rounded-gutter-x;
+		margin-right: -$sidebar-rounded-gutter-x;
+
+		.list-item:not(:last-of-type) {
+			margin-bottom: $sidebar-rounded-gutter-y / 2;
+		}
+		
+		.nav-link {
+			padding-left: $sidebar-rounded-gutter-x;
+			padding-right: $sidebar-rounded-gutter-x;
+			border-radius: $sidebar-rounded-border-radius;
+		}
+	}
+
+	.nav-link__submenu.active {
+		margin-bottom: $sidebar-rounded-gutter-y / 2;
+
+	}
+
+	.nav-list__submenu {
+		border-radius: $sidebar-rounded-border-radius;
+
+		.list-item:not(:last-of-type) {
+			margin-bottom: 0;
+		}
+
+		// Remove border radius
+		.list-item .nav-link{
+			border-radius: 0;
+		}
+		// Add border radius for first nav-link
+		.list-item:first-of-type .nav-link:hover,
+		.list-item:first-of-type .nav-link.active {
+			border-top-left-radius: $sidebar-rounded-border-radius;
+			border-top-right-radius: $sidebar-rounded-border-radius;
+		}
+		// Add border radius for last nav-link
+		.list-item:last-of-type .nav-link:hover,
+		.list-item:last-of-type .nav-link.active {
+			border-bottom-left-radius: $sidebar-rounded-border-radius;
+			border-bottom-right-radius: $sidebar-rounded-border-radius;
+		}
+		// Set padding left and remove default left border
+		.nav-link {
+			padding-left: $sidebar-rounded-gutter-x + $sidebar-nav-link-icon-width;
+		}
+	}
+}
+
+// Simple navigation style
+#beets-layout .bl__sidebar .sidebar__nav.nav-style__simple {
+	.nav-link.active:not(.nav-link__submenu),
+	.nav-list__submenu .nav-link.active {
+		color: $sidebar-color;
+		-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+		        box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+	}
+	.list-item.open,
+	.list-item.open .nav-link.active:not(.nav-link__submenu) {
+		-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+		        box-shadow: inset $sidebar-simple-border-width 0 0 0 $sidebar-simple-shadow-color;
+	}
+	
+	// Custom accent color
+	&.nav-accent {
+		&.simple__colored-submenu {
+			.nav-list__submenu .nav-link.active {
+				color: $nav-accent-custom-color;
+			}
+		}
+		.nav-link.active,
+		.list-item.open .nav-link.active {
+			-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($nav-accent-custom-color, $sidebar-simple-border-opacity);
+			        box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($nav-accent-custom-color, $sidebar-simple-border-opacity);
+		}
+		.nav-link.active:not(.nav-link__submenu),
+		.list-item.open .nav-link__submenu.active,
+		.list-item.open .nav-link {
+			-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $nav-accent-custom-color;
+			        box-shadow: inset $sidebar-simple-border-width 0 0 0 $nav-accent-custom-color;
+		}
+	}
+	// Theme based accent colors
+	@each $color, $value in $bootstrap-theme-colors {
+		&.nav-accent-#{$color} {
+			&.simple__colored-submenu {
+				.nav-list__submenu .nav-link.active {
+					color: $value;
+				}
+			}
+			.nav-link.active,
+			.list-item.open .nav-link.active {
+				-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($value, $sidebar-simple-border-opacity);
+				        box-shadow: inset $sidebar-simple-border-width 0 0 0 rgba($value, $sidebar-simple-border-opacity);
+			}
+			.nav-link.active:not(.nav-link__submenu),
+			.list-item.open .nav-link__submenu.active,
+			.list-item.open .nav-link {
+				-webkit-box-shadow: inset $sidebar-simple-border-width 0 0 0 $value;
+				        box-shadow: inset $sidebar-simple-border-width 0 0 0 $value;
+			}
+		}
+	}
+}
+
+// Dark sidebar
+#beets-layout .bl__sidebar.sidebar-dark {
+	color: $dark-sidebar-color;
+
+	.sidebar__header,
+	.sidebar__footer {
+		border-color: $sidebar-border-color-dark;
+	}
+
+	.sidebar__divider {
+		opacity: $dark-divider-opacity;
+	}
+}
+
+// Dark sidebar navigation
+#beets-layout .bl__sidebar.sidebar-dark .sidebar__nav {
+	 .nav-list {
+		.nav-link {
+			// opacity: $dark-nav-link-opacity;
+			
+			&:hover,
+			&.active {
+				background-color: $dark-nav-link-bg-active;
+			}
+			&.active {
+				opacity: $dark-nav-link-opacity-active;
+			}
+		}
+	}
+
+	.nav-list__submenu {
+		background-color: $dark-submenu-bg;
+	}	
+	.nav-link__submenu::after {
+		@include submenu-indicator($dark-submenu-indicator-color);
+	}	
+}

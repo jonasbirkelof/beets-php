@@ -1,0 +1,21 @@
+$beets-cursor-variants: (
+	crosshair,
+	default,
+	help,
+	initial,
+	move,
+	none,
+	not-allowed,
+	pointer,
+	progress,
+	text,
+	wait,
+	zoom-in,
+	zoom-out
+);
+
+@each $property in $beets-cursor-variants {
+	.cursor-#{$property} {
+		cursor: $property !important;
+	}
+}

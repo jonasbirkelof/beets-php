@@ -1,0 +1,60 @@
+$beets-btn-aspect-height:				38px; // Regular button height
+$beets-btn-aspect-height-sm:			31px; // Small button height
+$beets-btn-aspect-height-lg:			48px; // Large button height
+
+//
+// Alternative buttons
+//
+
+@each $color, $value in $theme-colors {
+	.btn-alt-#{$color} {
+		@if $color == light {
+			@include button-alt-variant(shade-color($value, 20%));
+		} @else {
+			@include button-alt-variant($value);
+		}
+	}
+}
+
+//
+// Ghost buttons
+//
+
+@each $color, $value in $theme-colors {
+	.btn-ghost-#{$color} {
+		@include button-ghost-variant($value);
+	}
+}
+
+//
+// Square
+//
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+		.btn-square#{$infix} {
+			height: $beets-btn-aspect-height;
+			width: $beets-btn-aspect-height;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+
+			&.btn-sm {
+				height: $beets-btn-aspect-height-sm;
+				width: $beets-btn-aspect-height-sm;
+			}
+
+			&.btn-lg {
+				height: $beets-btn-aspect-height-lg;
+				width: $beets-btn-aspect-height-lg;
+			}
+		}
+
+		.btn-square#{$infix}-0 {
+			@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+			width: initial;
+		}
+	}
+}

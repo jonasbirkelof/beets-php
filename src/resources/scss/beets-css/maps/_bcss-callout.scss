@@ -1,0 +1,125 @@
+// Callout types
+$type-note: 		"note";
+$type-summary: 		"summary";
+$type-info: 		"info";
+$type-todo: 		"todo";
+$type-tip: 			"tip";
+$type-success: 		"success";
+$type-question: 	"question";
+$type-warning: 		"warning";
+$type-failure: 		"failure";
+$type-danger: 		"danger";
+$type-bug: 			"bug";
+$type-example: 		"example";
+$type-quote: 		"quote";
+
+// Bootstrap colors
+$bs-note: 			rgba($blue-500, .9999);
+$bs-summary: 		rgba($cyan-500, .9999);
+$bs-info: 			rgba($cyan-600, .9999);
+$bs-todo: 			rgba($cyan-600, .9999);
+$bs-tip: 			rgba($teal-500, .9999);
+$bs-success: 		rgba($green-600, .9999);
+$bs-question: 		rgba($green-400, .9999);
+$bs-warning: 		rgba($orange-500, .9999);
+$bs-failure: 		rgba($red-400, .9999);
+$bs-danger: 		rgba($red-500, .9999);
+$bs-bug: 			rgba($red-500, .9999);
+$bs-example: 		rgba($indigo-400, .9999);
+$bs-quote: 			rgba($gray-600, .9999);
+// Tailwind colors
+$tw-note: 			rgb(59, 130, 246); // blue-500
+$tw-summary: 		rgb(14, 165, 233); // sky-500
+$tw-info: 			rgb(6, 182, 212); // cyan-500
+$tw-todo: 			rgb(6, 182, 212); // cyan-500
+$tw-tip: 			rgb(20, 184, 166); // teal-500
+$tw-success: 		rgb(34, 197, 94); // green-500
+$tw-question: 		rgb(132, 204, 22); // lime-500
+$tw-warning: 		rgb(234, 179, 8); // yellow-500
+$tw-failure: 		rgb(239, 68, 68); // red-500
+$tw-danger: 		rgb(225, 29, 72); // rose-600
+$tw-bug: 			rgb(225, 29, 72); // rose-600
+$tw-example: 		rgb(99, 102, 241); // indigo-500
+$tw-quote: 			rgb(107, 114, 128); // gray-500
+// Custom colors
+$custom-danger: 	rgb(242, 13, 62);
+$custom-bug: 		rgb(242, 13, 62);
+
+// Colors
+$color-note: 		$tw-note;
+$color-summary: 	$tw-summary;
+$color-info: 		$tw-info;
+$color-todo: 		$tw-todo;
+$color-tip: 		$tw-tip;
+$color-success: 	$tw-success;
+$color-question: 	$tw-question;
+$color-warning: 	$bs-warning;
+$color-failure: 	$tw-failure;
+$color-danger: 		$custom-danger;
+$color-bug: 		$custom-bug;
+$color-example: 	$bs-example;
+$color-quote: 		$bs-quote;
+
+// Custom properties
+:root {
+	--bcss-callout-color-note: 		#{$color-note};
+	--bcss-callout-color-summary: 	#{$color-summary};
+	--bcss-callout-color-info: 		#{$color-info};
+	--bcss-callout-color-todo: 		#{$color-todo};
+	--bcss-callout-color-tip: 		#{$color-tip};
+	--bcss-callout-color-success: 	#{$color-success};
+	--bcss-callout-color-question: 	#{$color-question};
+	--bcss-callout-color-warning: 	#{$color-warning};
+	--bcss-callout-color-failure:	#{$color-failure};
+	--bcss-callout-color-danger: 	#{$color-danger};
+	--bcss-callout-color-bug: 		#{$color-bug};
+	--bcss-callout-color-example: 	#{$color-example};
+	--bcss-callout-color-quote:		#{$color-quote};
+}
+
+// Callout Bootstrap icons
+$note-bs-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-note}' xmlns='http://www.w3.org/2000/svg'><path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/></svg>");
+$summary-bs-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-summary}' xmlns='http://www.w3.org/2000/svg'><path d='M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z'/><path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z'/></svg>");
+$info-bs-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-info}' xmlns='http://www.w3.org/2000/svg'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/></svg>");
+$todo-bs-icon:			url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-todo}' xmlns='http://www.w3.org/2000/svg'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z'/></svg>");
+$tip-bs-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-tip}' xmlns='http://www.w3.org/2000/svg'><path d='M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z'/></svg>");
+$success-bs-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-success}' xmlns='http://www.w3.org/2000/svg'><path d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z'/></svg>");
+$question-bs-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-question}' xmlns='http://www.w3.org/2000/svg'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z'/></svg>");
+$warning-bs-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-warning}' xmlns='http://www.w3.org/2000/svg'><path d='M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z'/><path d='M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z'/></svg>");
+$failure-bs-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-failure}' xmlns='http://www.w3.org/2000/svg'><path d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z'/></svg>");
+$danger-bs-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-danger}' xmlns='http://www.w3.org/2000/svg'><path d='M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z'/></svg>");
+$bug-bs-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-bug}' xmlns='http://www.w3.org/2000/svg'><path d='M4.355.522a.5.5 0 0 1 .623.333l.291.956A4.979 4.979 0 0 1 8 1c1.007 0 1.946.298 2.731.811l.29-.956a.5.5 0 1 1 .957.29l-.41 1.352A4.985 4.985 0 0 1 13 6h.5a.5.5 0 0 0 .5-.5V5a.5.5 0 0 1 1 0v.5A1.5 1.5 0 0 1 13.5 7H13v1h1.5a.5.5 0 0 1 0 1H13v1h.5a1.5 1.5 0 0 1 1.5 1.5v.5a.5.5 0 1 1-1 0v-.5a.5.5 0 0 0-.5-.5H13a5 5 0 0 1-10 0h-.5a.5.5 0 0 0-.5.5v.5a.5.5 0 1 1-1 0v-.5A1.5 1.5 0 0 1 2.5 10H3V9H1.5a.5.5 0 0 1 0-1H3V7h-.5A1.5 1.5 0 0 1 1 5.5V5a.5.5 0 0 1 1 0v.5a.5.5 0 0 0 .5.5H3c0-1.364.547-2.601 1.432-3.503l-.41-1.352a.5.5 0 0 1 .333-.623zM4 7v4a4 4 0 0 0 3.5 3.97V7H4zm4.5 0v7.97A4 4 0 0 0 12 11V7H8.5zM12 6a3.989 3.989 0 0 0-1.334-2.982A3.983 3.983 0 0 0 8 2a3.983 3.983 0 0 0-2.667 1.018A3.989 3.989 0 0 0 4 6h8z'/></svg>");
+$example-bs-icon:		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-example}' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/></svg>");
+$quote-bs-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='#{$color-quote}' xmlns='http://www.w3.org/2000/svg'><path d='M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z'/></svg>");
+
+// Callout Fontawesome icons
+$note-fa-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-note}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z'/></svg>");
+$summary-fa-icon:		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-summary}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z'/></svg>");
+$info-fa-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-info}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-144c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z'/></svg>");
+$todo-fa-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-todo}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/></svg>");
+$tip-fa-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-tip}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M153.6 29.9l16-21.3C173.6 3.2 180 0 186.7 0C198.4 0 208 9.6 208 21.3V43.5c0 13.1 5.4 25.7 14.9 34.7L307.6 159C356.4 205.6 384 270.2 384 337.7C384 434 306 512 209.7 512H192C86 512 0 426 0 320v-3.8c0-48.8 19.4-95.6 53.9-130.1l3.5-3.5c4.2-4.2 10-6.6 16-6.6C85.9 176 96 186.1 96 198.6V288c0 35.3 28.7 64 64 64s64-28.7 64-64v-3.9c0-18-7.2-35.3-19.9-48l-38.6-38.6c-24-24-37.5-56.7-37.5-90.7c0-27.7 9-54.8 25.6-76.9z'/></svg>");
+$success-fa-icon:		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-success}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/></svg>");
+$question-fa-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-question}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM288 352c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32z'/></svg>");
+$warning-fa-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-warning}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32z'/></svg>");
+$failure-fa-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-failure}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/></svg>");
+$danger-fa-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-danger}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z'/></svg>");
+$bug-fa-icon: 			url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-bug}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M256 0c53 0 96 43 96 96v3.6c0 15.7-12.7 28.4-28.4 28.4H188.4c-15.7 0-28.4-12.7-28.4-28.4V96c0-53 43-96 96-96zM41.4 105.4c12.5-12.5 32.8-12.5 45.3 0l64 64c.7 .7 1.3 1.4 1.9 2.1c14.2-7.3 30.4-11.4 47.5-11.4H312c17.1 0 33.2 4.1 47.5 11.4c.6-.7 1.2-1.4 1.9-2.1l64-64c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-64 64c-.7 .7-1.4 1.3-2.1 1.9c6.2 12 10.1 25.3 11.1 39.5H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H416c0 24.6-5.5 47.8-15.4 68.6c2.2 1.3 4.2 2.9 6 4.8l64 64c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-63.1-63.1c-24.5 21.8-55.8 36.2-90.3 39.6V240c0-8.8-7.2-16-16-16s-16 7.2-16 16V479.2c-34.5-3.4-65.8-17.8-90.3-39.6L86.6 502.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l64-64c1.9-1.9 3.9-3.4 6-4.8C101.5 367.8 96 344.6 96 320H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H96.3c1.1-14.1 5-27.5 11.1-39.5c-.7-.6-1.4-1.2-2.1-1.9l-64-64c-12.5-12.5-12.5-32.8 0-45.3z'/></svg>");
+$example-fa-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-example}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M64 144c26.5 0 48-21.5 48-48s-21.5-48-48-48S16 69.5 16 96s21.5 48 48 48zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm48-208c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z'/></svg>");
+$quote-fa-icon: 		url("data:image/svg+xml,<svg viewBox='0 0 512 512' fill='#{$color-quote}' xmlns='http://www.w3.org/2000/svg'><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d='M448 296c0 66.3-53.7 120-120 120h-8c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H320c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72zm-256 0c0 66.3-53.7 120-120 120H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72z'/></svg>");
+
+// Callout types map
+$bcss-callout-types: (
+	$type-note: 		($color-note, 		$note-bs-icon, 		$note-fa-icon),
+	$type-summary: 		($color-summary, 	$summary-bs-icon, 	$summary-fa-icon),
+	$type-info: 		($color-info, 		$info-bs-icon, 		$info-fa-icon),
+	$type-todo: 		($color-todo, 		$todo-bs-icon, 		$todo-fa-icon),
+	$type-tip: 			($color-tip, 		$tip-bs-icon, 		$tip-fa-icon),
+	$type-success: 		($color-success, 	$success-bs-icon, 	$success-fa-icon),
+	$type-question: 	($color-question, 	$question-bs-icon, 	$question-fa-icon),
+	$type-warning: 		($color-warning,	$warning-bs-icon, 	$warning-fa-icon),
+	$type-failure: 		($color-failure, 	$failure-bs-icon, 	$failure-fa-icon),
+	$type-danger: 		($color-danger, 	$danger-bs-icon, 	$danger-fa-icon),
+	$type-bug: 			($color-bug, 		$bug-bs-icon, 		$bug-fa-icon),
+	$type-example: 		($color-example,	$example-bs-icon, 	$example-fa-icon),
+	$type-quote: 		($color-quote, 		$quote-bs-icon, 	$quote-fa-icon),
+);
