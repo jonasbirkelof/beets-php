@@ -1,0 +1,26 @@
+// Custom colors
+$crimson: #9a0044;
+$magenta: #d63384;
+$gold: #fd7e14;
+$petrol: #045163;
+
+// Custom colors map
+$beets-colors: (
+	"crimson": $crimson,
+	"magenta": $magenta,
+	"gold": $gold,
+	"petrol": $petrol,);
+
+// Merge with colors map
+$colors: map-merge($colors, $beets-colors);
+
+// Custom theme colors map
+$beets-theme-colors: (
+  "beets": $crimson,
+  "bubblegum": $magenta,
+  "autumn": $gold,
+  "birkelof": $petrol,
+);
+
+// Merge with theme colors map
+$theme-colors: map-merge($theme-colors, $beets-theme-colors);

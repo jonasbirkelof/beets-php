@@ -1,0 +1,23 @@
+@mixin callout-variant($values) {
+	$color: nth($values, 1);
+	$bs-icon: nth($values, 2);
+	$fa-icon: nth($values, 3);
+
+	background-color: rgba($color, $bcss-callout-bg-opacity);
+
+	.callout-header {
+		color: $color;
+	}
+
+	// Icon styling	
+	.callout-header::before {
+		background-image: $fa-icon;
+		background-repeat: no-repeat;
+	}
+	
+	// Bootstrap icons
+	&.callout-bs-icon .callout-header::before {
+		background-image: $bs-icon;
+		background-repeat: no-repeat;
+	}
+}

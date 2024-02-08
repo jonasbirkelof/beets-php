@@ -1,0 +1,80 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-alt-variant(
+	$theme-color,
+	$color: $theme-color,
+	$color-active: $theme-color,
+	$color-hover: $theme-color,
+	$bg-color: #{$theme-color}1c,
+	$bg-color-active: #{$theme-color}36,
+	$bg-color-hover: #{$theme-color}2b,
+) {
+	color: $color;
+	border-color: transparent;
+	background-color: $bg-color;
+
+	&:hover {
+		color: $color-hover !important;
+		background-color: $bg-color-hover !important;
+		border-color: transparent !important;
+	}
+
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: $color-active;
+		background-color: $bg-color-active;
+		border-color: transparent;
+
+		&:focus {
+			background-color: $bg-color-active !important;
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		color: $theme-color;
+		background-color: transparent;
+	}
+}
+
+@mixin button-ghost-variant(
+	$theme-color,
+	$color-hover: color-contrast($theme-color),
+	$bg-color-active: #{$theme-color}2a,
+	$bg-color-hover: #{$theme-color}1c,
+) {
+	color: $theme-color;
+	border-color: transparent;
+
+	&:hover {
+		color: $theme-color !important;
+		background-color: $bg-color-hover !important;
+		border-color: transparent !important;
+	}
+
+	.btn-check:checked + &,
+	.btn-check:active + &,
+	&:active,
+	&.active,
+	&.dropdown-toggle.show {
+		color: $theme-color;
+		background-color: $bg-color-active;
+		border-color: transparent;
+
+		&:focus {
+			background-color: $bg-color-active !important;
+		}
+	}
+
+	&:disabled,
+	&.disabled {
+		color: $theme-color;
+		background-color: transparent;
+	}
+}

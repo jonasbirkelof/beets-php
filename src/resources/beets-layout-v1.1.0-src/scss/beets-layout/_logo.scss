@@ -1,0 +1,26 @@
+// 
+// ESSENTIAL
+// 
+
+
+
+// ...
+
+
+
+// 
+// DESIGN
+//  
+
+
+
+// Logo in header and sidebar-header
+#beets-layout .header__logo {
+	display: flex;
+	align-items: center;
+
+	img {
+		max-height: $logo-img-height;
+		max-width: $logo-img-width;
+	}
+}

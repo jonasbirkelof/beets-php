@@ -1,0 +1,43 @@
+%title {
+	letter-spacing: $bcss-headings-letter-spacing;
+	font-weight: 500;
+}
+
+.modal {
+	--#{$prefix}modal-padding: #{$modal-inner-padding};
+	--#{$prefix}modal-header-padding-x: #{$modal-header-padding-x};
+  	--#{$prefix}modal-header-padding-y: #{$modal-header-padding-y};
+	--#{$prefix}modal-footer-padding-x: #{$modal-header-padding-x};
+  	--#{$prefix}modal-footer-padding-y: #{$modal-header-padding-y};
+}
+
+.modal-content {
+	box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14),0 9px 46px 8px rgba(0,0,0,0.12),0 11px 15px -7px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+	height: 68px;
+	padding: var(--#{$prefix}modal-header-padding-y) var(--#{$prefix}modal-header-padding-x);
+}
+
+.modal-title {
+	@extend %title;
+}
+
+.modal-body {
+	padding: var(--#{$prefix}modal-padding);
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.modal-footer {
+	padding: var(--#{$prefix}modal-footer-padding-y) var(--#{$prefix}modal-footer-padding-x);
+	height: 68px;
+
+	// Remove margins on child elements
+	> * {
+		margin: 0;
+	}
+}

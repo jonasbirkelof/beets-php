@@ -1,0 +1,30 @@
+//
+// ESSENTIAL
+//
+
+
+
+#beets-layout .bl__footer {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	max-height: $footer-height;
+	min-height: $footer-height;
+}
+
+
+
+//
+// DESIGN
+//
+
+
+
+#beets-layout .bl__footer {
+	padding-left: $gutter-x;
+	padding-right: $gutter-x;
+
+	background-color: $footer-bg;
+	color: $footer-color;
+	border-top: $footer-border;
+}

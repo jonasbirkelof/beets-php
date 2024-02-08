@@ -1,0 +1,10 @@
+// Custom colors map
+$beets-spacers: (
+	5: $grid-gutter-width,
+	6: $spacer * 3,
+	7: $spacer * 4,
+	8: $spacer * 5,
+);
+
+// Merge with colors map
+$spacers: map-merge($spacers, $beets-spacers);

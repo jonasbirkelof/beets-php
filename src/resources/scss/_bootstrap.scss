@@ -1,0 +1,75 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+$black:    #000 !default;
+
+$border-color-translucent:    rgba($black, .11) !default;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+@import "beets-css/maps/bcss-custom-colors";
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1140px
+);
+
+.breadcrumb-item+.breadcrumb-item:before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 10px;
+  margin-top: 2px;
+}
+$breadcrumb-divider: quote("\f105");
+
+// 5. Include remainder of required parts
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed (pick and chose!)
+@import "../../node_modules/bootstrap/scss/accordion";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/helpers";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/offcanvas";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/placeholders";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/toasts";
+@import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here

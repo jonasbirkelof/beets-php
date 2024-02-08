@@ -1,0 +1,88 @@
+$bcss-neg-card-spacer-x: calc(var(--#{$prefix}card-spacer-x) * -1);
+$bcss-neg-card-spacer-y: calc(var(--#{$prefix}card-spacer-y) * -1);
+$bcss-neg-card-title-spacer-y: calc(var(--#{$prefix}card-title-spacer-y) * -1);
+
+%title {
+	letter-spacing: $bcss-headings-letter-spacing;
+	font-weight: 500;
+}
+
+//
+// Base styles
+//
+
+.card {
+	--#{$prefix}card-spacer-y: #{$card-spacer-y};
+  	--#{$prefix}card-spacer-x: #{$card-spacer-x};
+	--#{$prefix}card-cap-padding-y: #{$card-cap-padding-y};
+	--#{$prefix}card-cap-padding-x: #{$card-cap-padding-x};
+	--#{$prefix}card-cap-bg: #{$card-cap-bg};
+
+	> .list-group .list-group-item {
+		padding-left: var(--#{$prefix}card-spacer-x);
+		padding-right: var(--#{$prefix}card-spacer-x);
+	}
+}
+
+.card-title {
+	@extend %title;
+
+	& + .card-subtitle {
+		color: $text-muted;
+		margin-top: calc($bcss-neg-card-title-spacer-y + 0.5rem);
+		margin-bottom: 1rem;
+		font-weight: $font-weight-base;
+	}
+}
+
+//
+// Optional textual caps
+//
+
+.card-header {
+  	& h1, h2, h3, h4, h5, h6 {
+		@extend %title;
+		margin-bottom: 0;
+	}
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 54px;
+}
+
+.card-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 54px;
+}
+
+//
+// Card table (Beets exclusive)
+//
+
+.card-table {
+	margin-left: $bcss-neg-card-spacer-x;
+	margin-right: $bcss-neg-card-spacer-x;
+}
+
+.card-table tr th:first-child,
+.card-table tr td:first-child {
+	padding-left: var(--#{$prefix}card-spacer-x);
+}
+
+.card-table tr th:last-child,
+.card-table tr td:last-child {
+	padding-right: var(--#{$prefix}card-spacer-y);
+}
+
+.card-table tbody tr:last-of-type th,
+.card-table tbody tr:last-of-type td,
+.card-table tfoot tr:last-of-type th,
+.card-table tfoot tr:last-of-type td {
+	border-bottom: 0;
+}
+
+.card-table tfoot {
+	border-top: 1px solid $table-group-separator-color;;
+}

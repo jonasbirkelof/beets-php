@@ -1,0 +1,33 @@
+//
+// ESSENTIAL
+//
+
+
+
+#beets-layout .bl__main {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+// Offset to sidebar when visible
+#beets-layout > .bl__sidebar + .bl__main {
+	margin-left: $main-sidebar-offset;
+}
+
+// Offset to sidebar when collapsed on small screens (body full width)
+#beets-layout > .bl__sidebar.sidebar-collapse + .bl__main {
+	@media (max-width: $breakpoint) {
+		margin-left: 0;
+	}
+}
+
+
+
+//
+// DESIGN
+//
+
+
+
+// ...

@@ -1,0 +1,62 @@
+//
+// Check/radio
+//
+
+@each $color, $value in $theme-colors {
+	.form-check-#{$color} .form-check-input {
+		&:checked {
+			background-color: $value;
+			border-color: $value;
+		}
+
+		&:focus {
+			border-color: tint-color($value, 50%);
+			box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width rgba($value, $input-btn-focus-color-opacity);
+		}
+
+		&[type="checkbox"]:indeterminate {
+			background-color: $value;
+			border-color: $value;
+		}
+	}
+
+	.was-validated .form-check-#{$color} .form-check-input:valid {
+		&:checked {
+			background-color: $form-feedback-valid-color;
+			border-color: $form-feedback-valid-color;
+		}
+
+		&:focus {
+			border-color: $form-feedback-valid-color;
+			box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width rgba($form-feedback-valid-color, $input-btn-focus-color-opacity);
+		}
+	}
+
+	.was-validated .form-check-#{$color} .form-check-input:invalid {
+		&:checked {
+			background-color: $form-feedback-invalid-color;
+			border-color: $form-feedback-invalid-color;
+		}
+
+		&:focus {
+			border-color: $form-feedback-invalid-color;
+			box-shadow: 0 0 $input-btn-focus-blur $input-btn-focus-width rgba($form-feedback-invalid-color, $input-btn-focus-color-opacity);
+		}
+	}
+
+	.form-switch.form-check-#{$color} .form-check-input {	  
+		&:focus {
+			$form-switch-focus-color: 			tint-color($value, 50%);
+			$form-switch-focus-bg-image:      	url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
+
+			background-image: escape-svg($form-switch-focus-bg-image);
+		}
+
+		&:checked {
+			$form-switch-checked-color:       $component-active-color;
+			$form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>") !default;
+
+			background-image: escape-svg($form-switch-checked-bg-image);
+		}
+	}
+}
