@@ -8,11 +8,11 @@
             "./config/dotenv.php",
             "./config/data.php",
             "./config/app.php",
-            "./app/core/functions.php",
-            "./app/helpers/functions.php"
+            "./App/Core/functions.php",
+            "./App/Helpers/functions.php"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "App/"
         }
     }
 }
