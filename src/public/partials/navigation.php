@@ -2,7 +2,7 @@
 	<div class="d-flex align-items-center gap-3 d-lg-none">
 		<button class="btn btn-alt-secondary btn-square" onclick="toggleSidebar()"><i class="fa-solid fa-bars fa-fw fa-lg"></i></button>
 		<div class="header__logo">
-			<img src="<?= ASSETS_URL ?>/images/beets_col_250x744.png" alt="Beets logotype">
+			<img src="<?= image('beets_col_250x744.png') ?>" alt="Beets logotype">
 		</div>
 	</div>
 	<div class="d-flex align-items-center gap-4">

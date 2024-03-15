@@ -254,7 +254,7 @@ class User
 	public static function deleteImage(int $userId): bool
 	{
 		// Delete old image
-		if (unlink(STORAGE . '/' . static::image($userId))) {
+		if (unlink(ROOT . STORAGE . '/' . static::image($userId))) {
 			// Update profile
 			$sql = "UPDATE " . DB_USER_ACCOUNTS . " SET 
 				image = :image,
@@ -293,11 +293,11 @@ class User
 		if (static::image($userId)) static::deleteImage($userId);
 
 		// Create the storage folder if it does not exist
-		if (! file_exists(STORAGE) && ! is_dir(STORAGE)) {
-			mkdir(STORAGE);
+		if (! file_exists(ROOT . STORAGE) && ! is_dir(ROOT . STORAGE)) {
+			mkdir(ROOT . STORAGE);
 		}
 		
-		if (move_uploaded_file($_FILES['image']['tmp_name'], STORAGE . $newImageName)) {
+		if (move_uploaded_file($_FILES['image']['tmp_name'], ROOT . STORAGE . '/' . $newImageName)) {
 			// Update profilew
 			$sql = "UPDATE " . DB_USER_ACCOUNTS . " SET image = :image WHERE id = :id";
 			DB::query($sql, ['image' => $newImageName, 'id' => $userId]);

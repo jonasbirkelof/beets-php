@@ -1,6 +1,5 @@
 node_modules/
-vendor/
 # .env
-# .env.example
+# .env.production
 # beetsphp.sql
-# webpack.mix.js.example
+# webpack.mix.js

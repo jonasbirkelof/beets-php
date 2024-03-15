@@ -3,7 +3,7 @@
 
 	<div class="sidebar__header justify-content-between">
 		<div class="header__logo fs-5">
-			<img src="<?= ASSETS_URL ?>/images/beets_col_250x744.png" alt="Beets logotype">
+			<img src="<?= image('beets_col_250x744.png') ?>" alt="Beets logotype">
 		</div>
 		<button class="btn btn-alt-secondary btn-square d-lg-none" onclick="toggleSidebar()"><i class="fa-solid fa-times fa-fw fa-lg"></i></button>
 	</div>

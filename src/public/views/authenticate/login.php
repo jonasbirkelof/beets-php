@@ -1,9 +1,9 @@
-<?php require "partials/page-head.php"; ?>
+<?php partial('page-head'); ?>
 
 <main class="bl__main">
 	<div class="bl__body bg-transparent container-xl py-3 px-2 px-sm-4">
 		<div class="d-flex justify-content-center my-5">
-			<img src="<?= ASSETS_URL ?>/images/beets_col_250x744.png" style="max-height: 75px;">
+			<img src="<?= image('beets_col_250x744.png') ?>" style="max-height: 75px;">
 		</div>
 
 		<div class="card shadow-sm mx-auto" style="max-width: 30em">
@@ -42,7 +42,7 @@
 		</div>
 	</div>
 			
-	<?php require "partials/copyright.php"; ?>
+	<?php partial('copyright'); ?>
 </main>
 
-<?php require "partials/page-foot.php"; ?>
+<?php partial('page-foot'); ?>

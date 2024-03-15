@@ -1,6 +1,4 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# Point entrance to ~/public/
-RewriteRule . public/ [L]
+RewriteRule . index.php [L]

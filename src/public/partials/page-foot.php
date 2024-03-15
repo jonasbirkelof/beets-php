@@ -1,6 +1,6 @@
 </div>
 
-<script src="<?= ASSETS_URL ?>/js/app.js"></script>
+<script src="<?= JAVASCRIPT ?>/app.js"></script>
 <script>
 	// Tooltips
 	const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

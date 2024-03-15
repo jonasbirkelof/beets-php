@@ -20,13 +20,13 @@
 			<nav id="footer-nav">
 				<ul class="nav-list">
 					<li class="nav-list-item">
-						<a href="#">About us</a>
+						<a href="/about">About</a>
 					</li>
 					<li class="nav-list-item">
 						<a href="#">Contact</a>
 					</li>
 					<li class="nav-list-item">
-						<a href="#">Career</a>
+						<a href="/settings">Settings</a>
 					</li>
 				</ul>
 			</nav>

@@ -1,8 +1,8 @@
-<?php require "partials/page-head.php"; ?>
-<?php require "partials/sidebar.php"; ?>
+<?php partial('page-head'); ?>
+<?php partial('sidebar'); ?>
 
 <main class="bl__main">	
-	<?php require "partials/navigation.php"; ?>
+	<?php partial('navigation'); ?>
 	
 	<?= feedback() ?>
 
@@ -134,4 +134,4 @@
 	</div>
 </main>
 
-<?php require "partials/page-foot.php"; ?>
+<?php partial('page-foot'); ?>

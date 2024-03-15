@@ -24,16 +24,6 @@ RUN cp /root/go/bin/mhsendmail /usr/bin/mhsendmail
 # Edit php.ini to use mailhog as SMTP server
 RUN echo 'sendmail_path = /usr/bin/mhsendmail --smtp-addr mailhog:1025' > /usr/local/etc/php/php.ini
 
-# SET /PUBLIC AS ROOT
-# Copy your PHP application files to the container
-COPY ./src /var/www/html/public
-# Create a virtual host configuration file
-COPY ./apache/vhost.conf /etc/apache2/sites-available/000-default.conf
-# Enable the virtual host
-RUN a2ensite 000-default.conf
-# Restart Apache
-# RUN service apache2 restart
-
 # COMPOSER
 # Allow root/superuser to run composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
