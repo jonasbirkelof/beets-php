@@ -23,6 +23,7 @@ use App\Http\Controllers\Authenticate\PasswordController;
 
 $Router = new Router();
 $Router->setNamespace('\App\Controllers');
+$Router->setBasePath('/');
 
 // Root
 if (Auth::check()) {

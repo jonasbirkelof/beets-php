@@ -1,8 +1,8 @@
-<?php require "partials/page-head.php"; ?>
-<?php require "partials/sidebar.php"; ?>
+<?php partial('page-head'); ?>
+<?php partial('sidebar'); ?>
 
 <main class="bl__main">	
-	<?php require "partials/navigation.php"; ?>
+	<?php partial('navigation'); ?>
 
 	<div class="bl__body container-xl px-sm-4">
 		<h1 class="page-title"><?= $title ?></h1>
@@ -28,4 +28,4 @@
 	</div>
 </main>
 
-<?php require "partials/page-foot.php"; ?>
+<?php partial('page-foot'); ?>

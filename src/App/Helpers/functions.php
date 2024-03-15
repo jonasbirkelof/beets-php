@@ -33,7 +33,7 @@ function setActiveNavItem($urlArray = [], $returnStr = null)
  */
 function userAccountStatus($status = null)
 {
-    require APP_ROOT . '/config/data.php';
+    require ROOT . '/config/data.php';
 
     if ($status === null) App::error("No user account status code submitted");
 
@@ -45,7 +45,7 @@ function userAccountStatus($status = null)
  */
 function userAccountStatusIcon($status = null)
 {
-    require APP_ROOT . '/config/data.php';
+    require ROOT . '/config/data.php';
 
     $unknownStatusIcon = '<i class="fa-solid fa-fw fa-question-circle text-secondary" data-bs-toggle="tooltip" data-bs-title="Status unknown"></i>';
     

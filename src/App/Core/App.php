@@ -12,13 +12,13 @@ class App
 	{
 		extract($attributes);
 
-		require_once PUBLIC_ROOT . 'views/' . $pattern;
+		require_once VIEWS . '/' . $pattern;
 	}
 
 	public static function abort($code = 404)
 	{
 		http_response_code($code);
-		require PUBLIC_ROOT . "views/errors/{$code}.php";
+		require VIEWS . "/errors/{$code}.php";
 		die();
 	}
 
@@ -27,7 +27,7 @@ class App
 		Session::flash('message', $message);
 		
 		http_response_code(200);
-		require PUBLIC_ROOT . "views/errors/error.php";
+		require VIEWS . "/errors/error.php";
 		die();
 	}
 

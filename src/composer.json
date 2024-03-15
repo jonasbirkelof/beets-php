@@ -7,7 +7,7 @@
         "files": [
             "./config/dotenv.php",
             "./config/data.php",
-            "./config/app.php",
+            "./config/config.php",
             "./App/Core/functions.php",
             "./App/Helpers/functions.php"
         ],
