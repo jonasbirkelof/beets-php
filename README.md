@@ -22,13 +22,17 @@ All libraries and packages are downloaded upon installation, but please take tim
 
 # Installation
 
-You can build your app with Docker or a local stack like Xampp. Please refer to the corresponding installation instructions since they differ a little from each other.
+You can build your app with **Docker** or a local stack like **Xampp**. Please refer to the corresponding installation instructions since they differ a little from each other.
 
 ## Install for Docker
 
-Out of the box this project is configured to be used with Docker, though it is possible to use this project with something like Xampp.
+Follow these steps to get started with Beets PHP by using Docker.
 
-This is a quick-start guide. For the full installation process, please visit [the documentation](https://jonasbirkelof.github.io/beets/beets-php/).
+1. Download Beets PHP by cloing the repository.
+
+    ```bash
+    git clone https://github.com/jonasbirkelof/beets-php
+    ```
 
 1. Open a terminal in the project root, navigate to the `/src` folder and install the dependencies.
     ```bash
@@ -43,9 +47,19 @@ This is a quick-start guide. For the full installation process, please visit [th
     composer install
     ```
 
-2. Open the file `~/src/vendor/bramus/router/src/Bramus/Router.php`.
+1. Open the file `~/config/config.php`. Update the values below under **Development variables** and **Productions variables**.
 
-3. Find the `run()` method around line 274. 
+    ```php title="Example"
+    $appFolder = '/subdomain';
+	$dbTablePrefix = 'app_';
+    ```
+
+    - `$appFolder`: If your application lives in a subfolder to your root, set the folder name here.
+    - `$dbTablePrefix`: If you only have one database available, like on a shared host, and have to give your table a prefix you set that prefix here.
+    
+1. Open the file `~/src/vendor/bramus/router/src/Bramus/Router.php`.
+
+1. Find the `run()` method around line 274. 
 
     Replace this line:
 
@@ -59,13 +73,13 @@ This is a quick-start guide. For the full installation process, please visit [th
     $this->requestedMethod = $_POST['_method'] ?? $this->getRequestMethod();
     ```
 
-4. Build the application to generate JavaScript and CSS files:
+1. Build the application to generate JavaScript and CSS files:
 
     ```bash
     npm run build
     ```
 
-5. Run docker compose from the root folder.
+1. Run docker compose from the root folder.
 
     ```bash
     cd ..
@@ -75,7 +89,7 @@ This is a quick-start guide. For the full installation process, please visit [th
     docker compose up --build -d
     ```
 
-6. When the containers are running, open PhpMyadmin ([localhost:9001](http://localhost:9001)) and import the database file `~/src/beetsphp.sql`. Use the default login credentials:
+1. When the containers are running, open PhpMyadmin ([localhost:9001](http://localhost:9001)) and import the database file `~/src/beetsphp.sql`. Use the default login credentials:
 
     - Server: mysql_db
     - Username: root
@@ -87,46 +101,30 @@ Open MailHog: [localhost:8025](http://localhost:8025)
 
 ## Install for Xampp
 
-Out of the box this project is configured to be used with Docker but if you would rather use something like Xampp, follow these steps.
+Follow these steps to get started with Beets PHP by using Xampp or any other local web server.
 
-This is a quick-start guide. For the full installation process, please visit [the documentation](https://jonasbirkelof.github.io/beets/beets-php/).
+The standard port 80 is shown for the URLs but you really don't need to have it there. If your port 80 is already in use, you have to set the Xampp port to something else (like 8080) and set the ports described below to that new port.
+
+1. Download Beets PHP by cloing the repository.
+
+    ```bash
+    git clone https://github.com/jonasbirkelof/beets-php
+    ```
 
 1. Delete the following files and folders completely:
 
-- `~/apache/`
-- `~/phpmyadmin/`
-- `~/Dockerfile`
-- `~/docker-compose.yml`
+	- `~/phpmyadmin/`
+	- `~/Dockerfile`
+	- `~/docker-compose.yml`
 
-2. Move the whole content of the `~/src/` folder to the root directory `(~/)` and delete the now empty `src` folder.
+1. Move the whole content of the `~/src/` folder to the root directory `(~/)` and delete the now empty `src` folder.
 
-3. Open a terminal in the project root and install the dependencies.
+1. Open a terminal in the project root and install the dependencies.
     ```bash
     npm install
     ```
 
-    ```bash
-    composer install
-    ```
-
-4. Add a virtual host for the project by adding the following code to `<path-to-xampp>/apache/conf/extra/httpd-vhosts.conf`:
-
-    ```txt
-    <VirtualHost *:80>
-        DocumentRoot "<path-to-xampp-localhost>/beets-php/public"
-        ServerName beetsphp.local
-    </VirtualHost>
-    ```
-
-5. Open Notepad as an **administrator** and open the hosts file `C:\Windows\System32\drivers\etc\hosts`. You will have to change the dropdown from only showing .txt files to show all files.
-
-6. Add the following line the the file, save and close it.
-
-    ```txt
-    127.0.0.1 beetsphp.local
-    ```
-
-7. Open the file `~/.env`.
+1. Open the file `~/.env`.
 
     a. Update `APP_URL` to the virtual host you just created:
 
@@ -134,7 +132,7 @@ This is a quick-start guide. For the full installation process, please visit [th
     APP_URL=http://beetsphp.local:80
     ```
 
-    b. Update your database credentials. For Xampp it might look something like this:
+    a. Update your database credentials. For Xampp it might look something like this:
 
     ```txt
     DB_CONNECTION=mysql
@@ -146,7 +144,17 @@ This is a quick-start guide. For the full installation process, please visit [th
     DB_PASSWORD=
     ```
 
-8. Open the file `~/webpack.mix.js`.
+1. Open the file `~/config/config.php`. Update the values below under **Development variables** and **Productions variables**.
+
+    ```php title="Example"
+    $appFolder = '/subdomain';
+	$dbTablePrefix = 'app_';
+    ```
+
+    - `$appFolder`: If your application lives in a subfolder to your root, set the folder name here.
+    - `$dbTablePrefix`: If you only have one database available, like on a shared host, and have to give your table a prefix you set that prefix here.
+
+1. Open the file `~/webpack.mix.js`.
 
     a. Update the BrowserSync proxy with the virtual host we just created:
 
@@ -156,7 +164,7 @@ This is a quick-start guide. For the full installation process, please visit [th
     ])
     ```
 
-9. Open the router file `~/vendor/bramus/router/src/Bramus/Router.php` and find the `run()` method around line 274.
+1. Open the router file `~/vendor/bramus/router/src/Bramus/Router.php` and find the `run()` method around line 274.
 
     Replace this line:
 
@@ -170,15 +178,34 @@ This is a quick-start guide. For the full installation process, please visit [th
     $this->requestedMethod = $_POST['_method'] ?? $this->getRequestMethod();
     ```
 
-10. Build the application to generate JavaScript and CSS files:
+1. Add a virtual host for the project by adding the following code to `<path-to-xampp>/apache/conf/extra/httpd-vhosts.conf`:
+
+    ```txt
+    <VirtualHost *:80>
+        DocumentRoot "<path-to-xampp-localhost>/beets-php"
+        ServerName beetsphp.local
+    </VirtualHost>
+    ```
+
+1. Open Notepad as an **administrator** and open the hosts file `C:\Windows\System32\drivers\etc\hosts`. You will have to change the dropdown from only showing .txt files to show all files. Add the following line to the file, save and close it.
+
+    ```txt
+    127.0.0.1 beetsphp.local
+    ```
+
+1. Start or restart Xampp with PhpMyAdmin.
+
+1. Open PhpMyadmin ([localhost:80/phpmyadmin](localhost:80/phpmyadmin)) and import the database file `~/beetsphp.sql`.
+
+1. Build the application to generate the JavaScript and CSS files:
 
     ```bash
     npm run build
     ```
 
-11. Open PhpMyadmin (localhost/phpmyadmin) and import the database file `~/beetsphp.sql`.
+You can now visit your new Beets PHP application by visiting [beetsphp.local:80](beetsphp.local:80)
 
-12. Start the dev server with:
+1. If you want to use the dev server, start it with:
 
     ```bash
     npm run dev
