@@ -1,4 +1,4 @@
-<img src=".github/assets/images/beetsphp_col_100x421.png#gh-light-mode-only-" style="height: 80px;">
+<img src=".github/assets/images/beetsphp_col_100x421.png#gh-light-mode-only" style="height: 80px;">
 <img src=".github/assets/images/beetsphp_col_inv_100x421.png#gh-dark-mode-only" style="height: 80px;">
 
 # About
