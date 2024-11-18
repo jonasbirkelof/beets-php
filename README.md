@@ -9,7 +9,7 @@ Also included is [Beets CSS](https://github.com/jonasbirkelof/beets-css) and [Be
 
 # Documentation
 
-The full documentation for the different Beets projects can be found on the [Beets documentation website](https://jonasbirkelof.github.io/beets).
+The full documentation for the different Beets projects can be found on the [Beets documentation website](https://docs.jonasbirkelof.se/beets).
 
 # Dependencies
 
