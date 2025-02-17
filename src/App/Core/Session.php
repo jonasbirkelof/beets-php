@@ -68,6 +68,20 @@ class Session
 	}
 
 	/**
+	 * Persist old form data.
+	 * 
+	 * @example Session.php Session::flashOld("message");
+	 * 
+	 * @param mixed $value
+	 * 
+	 * @return void
+	 */
+	public static function flashOld($value): void
+	{
+		$_SESSION['_flash']['old'] = $value;
+	}
+
+	/**
 	 * Unset the "_flash" session.
 	 * 
 	 * @example Session.php Session::unflash();

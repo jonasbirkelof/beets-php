@@ -14,7 +14,7 @@ use App\Models\Authenticate\Password;
 class ProfileController
 {
 	private const PROFILE_UPDATE_SUCCESS = "The changes were saved";
-	private const PROFILE_UPDATE_FAIL = "The changes were not save";
+	private const PROFILE_UPDATE_FAIL = "The changes were not saved";
 	private const IMAGE_UPDATE_FAIL = "The images was not saved";
 	private const IMAGE_UPDATE_FAIL_SIZE = "The file is too large (max " . PROFILE_IMAGE_MAX_SIZE_MB . " MB)";
 	private const IMAGE_DELETE_FAIL = "The image was not deleted";
