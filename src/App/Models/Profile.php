@@ -83,7 +83,7 @@ class Profile
 
 		$Form->flashErrors();
 
-		Session::flash('old', [
+		Session::flashOld([
 			'first_name' => $firstName,
 			'last_name' => $lastName,
 			'email' => $email,
