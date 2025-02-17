@@ -1,0 +1,9 @@
+.vscode
+src/node_modules/
+src/vendor/
+src/composer.lock
+src/package-lock.json
+src/public/assets/mix-manifest.json
+src/public/assets/css/
+src/public/assets/js/app.js
+src/public/assets/js/bootstrap.bundle.min.js
