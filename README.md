@@ -34,7 +34,7 @@ Follow these steps to get started with Beets PHP by using Docker.
     git clone https://github.com/jonasbirkelof/beets-php
     ```
 
-1. Open a terminal in the project root, navigate to the `/src` folder and install the dependencies.
+1. Open a terminal in the project root, navigate to the `/src/` folder and install the dependencies.
     ```bash
     cd src
     ```
@@ -47,7 +47,7 @@ Follow these steps to get started with Beets PHP by using Docker.
     composer install
     ```
 
-1. Open the file `~/config/config.php`. Update the values below under **Development variables** and **Productions variables**.
+1. Open the file `/config/config.php`. Update the values below under **Development variables** and **Productions variables**.
 
     ```php title="Example"
     $appFolder = '/subdomain';
@@ -57,7 +57,7 @@ Follow these steps to get started with Beets PHP by using Docker.
     - `$appFolder`: If your application lives in a subfolder to your root, set the folder name here.
     - `$dbTablePrefix`: If you only have one database available, like on a shared host, and have to give your table a prefix you set that prefix here.
     
-1. Open the file `~/src/vendor/bramus/router/src/Bramus/Router.php`.
+1. Open the file `/src/vendor/bramus/router/src/Bramus/Router.php`.
 
 1. Find the `run()` method around line 274. 
 
@@ -89,7 +89,7 @@ Follow these steps to get started with Beets PHP by using Docker.
     docker compose up --build -d
     ```
 
-1. When the containers are running, open PhpMyadmin ([localhost:9001](http://localhost:9001)) and import the database file `~/src/beetsphp.sql`. Use the default login credentials:
+1. When the containers are running, open PhpMyadmin ([localhost:9001](http://localhost:9001)) and import the database file `/database/beetsphp.sql`. Use the default login credentials:
 
     - Server: mysql_db
     - Username: root
@@ -113,18 +113,18 @@ The standard port 80 is shown for the URLs but you really don't need to have it 
 
 1. Delete the following files and folders completely:
 
-	- `~/phpmyadmin/`
-	- `~/Dockerfile`
-	- `~/docker-compose.yml`
+	- `/phpmyadmin/`
+	- `/Dockerfile`
+	- `/docker-compose.yml`
 
-1. Move the whole content of the `~/src/` folder to the root directory `(~/)` and delete the now empty `src` folder.
+1. Move the whole content of the `/src/` folder to the root directory and delete the now empty `/src/` folder.
 
 1. Open a terminal in the project root and install the dependencies.
     ```bash
     npm install
     ```
 
-1. Open the file `~/.env`.
+1. Open the file `/.env`.
 
     a. Update `APP_URL` to the virtual host you just created:
 
@@ -144,7 +144,7 @@ The standard port 80 is shown for the URLs but you really don't need to have it 
     DB_PASSWORD=
     ```
 
-1. Open the file `~/config/config.php`. Update the values below under **Development variables** and **Productions variables**.
+1. Open the file `/config/config.php`. Update the values below under **Development variables** and **Productions variables**.
 
     ```php title="Example"
     $appFolder = '/subdomain';
@@ -154,7 +154,7 @@ The standard port 80 is shown for the URLs but you really don't need to have it 
     - `$appFolder`: If your application lives in a subfolder to your root, set the folder name here.
     - `$dbTablePrefix`: If you only have one database available, like on a shared host, and have to give your table a prefix you set that prefix here.
 
-1. Open the file `~/webpack.mix.js`.
+1. Open the file `/webpack.mix.js`.
 
     a. Update the BrowserSync proxy with the virtual host we just created:
 
@@ -164,7 +164,7 @@ The standard port 80 is shown for the URLs but you really don't need to have it 
     ])
     ```
 
-1. Open the router file `~/vendor/bramus/router/src/Bramus/Router.php` and find the `run()` method around line 274.
+1. Open the router file `/vendor/bramus/router/src/Bramus/Router.php` and find the `run()` method around line 274.
 
     Replace this line:
 
@@ -195,7 +195,7 @@ The standard port 80 is shown for the URLs but you really don't need to have it 
 
 1. Start or restart Xampp with PhpMyAdmin.
 
-1. Open PhpMyadmin ([localhost:80/phpmyadmin](localhost:80/phpmyadmin)) and import the database file `~/beetsphp.sql`.
+1. Open PhpMyadmin ([localhost:80/phpmyadmin](localhost:80/phpmyadmin)) and import the database file `/database/beetsphp.sql`.
 
 1. Build the application to generate the JavaScript and CSS files:
 

@@ -1,9 +1,8 @@
-version: '3.9'
-
+---
 services:
   php:
-    container_name: php
-    hostname: php
+    container_name: beets_php
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -13,21 +12,19 @@ services:
       - 9000:80
     
   mysql_db:
-    image: mysql:latest
-    container_name: mysql
-    hostname: mysql
+    container_name: beets_mysql
+    image: mysql:8.3.0
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - db_data:/var/lib/mysql
+      - beets_db_data:/var/lib/mysql
   
   phpmyadmin:
-    image: phpmyadmin:latest
-    container_name: phpmyadmin
-    hostname: phpmyadmin
-    restart: always
+    container_name: beets_phpmyadmin
+    image: phpmyadmin:5.2.1
+    restart: unless-stopped
     ports:
       - 9001:80
     environment:
@@ -36,11 +33,12 @@ services:
       - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
 
   mailhog:
+    container_name: beets_mailhog
     image: mailhog/mailhog
-    container_name: mailhog
+    restart: unless-stopped
     ports:
       - "1025:1025" # SMTP
       - "8025:8025" # Web interface
 
 volumes:
-  db_data:
+  beets_db_data:
