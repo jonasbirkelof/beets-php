@@ -2,7 +2,7 @@
 
 use App\Core\App;
 use App\Core\Redirect;
-use Bramus\Router\Router;
+use App\Core\Router;
 use App\Core\Authenticate as Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
