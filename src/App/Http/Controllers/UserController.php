@@ -36,7 +36,7 @@ class UserController
 
 		Feedback::for('user_destroy_success')->toast([
 			'text' => static::USER_DESTROY_SUCCESS,
-			'style' => 'danger',
+			'style' => 'success',
 			'icon' => 'fa-regular fa-check-circle',
 		]);
 
