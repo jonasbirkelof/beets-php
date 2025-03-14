@@ -338,7 +338,7 @@ class User
 	 * 
 	 * @return mixed
 	 */
-	public static function firstName(int $userId = null): mixed
+	public static function firstName(int|null $userId = null): mixed
 	{
 		if (! $userId) return Auth::firstName();
 
@@ -355,7 +355,7 @@ class User
 	 * 
 	 * @return mixed
 	 */
-	public static function lastName(int $userId = null): mixed
+	public static function lastName(int|null $userId = null): mixed
 	{
 		if (! $userId) return Auth::lastName();
 
@@ -372,7 +372,7 @@ class User
 	 * 
 	 * @return mixed
 	 */
-	public static function fullName(int $userId = null): mixed
+	public static function fullName(int|null $userId = null): mixed
 	{
 		if (! $userId) return Auth::fullName();
 
@@ -402,7 +402,7 @@ class User
 	 * 
 	 * @return string
 	 */
-	public static function initials(int $userId = null): string
+	public static function initials(int|null $userId = null): string
 	{
 		if (! $userId) return Auth::initials();
 		if (! static::find($userId)) return false;
@@ -417,7 +417,7 @@ class User
 	 * 
 	 * @return mixed
 	 */
-	public static function image(int $userId = null): mixed
+	public static function image(int|null $userId = null): mixed
 	{
 		if (! $userId) return Auth::image();
 
@@ -434,7 +434,7 @@ class User
 	 * 
 	 * @return mixed
 	 */
-	public static function role(int $userId = null): mixed
+	public static function role(int|null $userId = null): mixed
 	{
 		if (! $userId) return Auth::role();
 
@@ -451,7 +451,7 @@ class User
 	 * 
 	 * @return mixed
 	 */
-	public static function permissions(int $userId = null): mixed
+	public static function permissions(int|null $userId = null): mixed
 	{
 		if (! $userId) return Auth::permissions();
 
