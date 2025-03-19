@@ -392,7 +392,7 @@ class User
 	 */
 	public static function makeInitials(string $firstName, string $lastName): string
 	{
-		return substr($firstName, 0, 1) . substr($lastName, 0, 1);
+		return mb_substr($firstName, 0, 1) . mb_substr($lastName, 0, 1);
 	}
 
 	/**
