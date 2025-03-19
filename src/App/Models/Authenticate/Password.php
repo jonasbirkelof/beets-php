@@ -20,7 +20,7 @@ class Password
 	 * 
 	 * @return bool
 	 */
-	public static function update(string $password, string $passwordRepeat, int $userId, int $updatedBy = null): bool
+	public static function update(string $password, string $passwordRepeat, int $userId, int|null $updatedBy = null): bool
 	{
 		$password = escape($password);
 		$passwordRepeat = escape($passwordRepeat);
